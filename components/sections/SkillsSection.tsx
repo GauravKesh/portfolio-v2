@@ -64,10 +64,11 @@ export default function SkillsSection() {
                       <span className="text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
                     <Progress
-                      value={skill.level}
-                      className="h-2"
-                      indicatorClassName="bg-gradient-to-r from-primary to-secondary"
-                    />
+  value={skill.level}
+  className="h-2"
+  indicatorClassName="bg-gradient-to-r from-primary to-secondary"
+/>
+
                   </motion.div>
                 ))}
               </div>
