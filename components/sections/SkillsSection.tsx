@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -27,12 +28,12 @@ export default function SkillsSection() {
         <div className="space-y-20">
           {skillsData.map((category, i) => (
             <motion.div
-              key={category.category}
+              key={category.name}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <h3 className="text-2xl font-semibold text-center md:text-left mb-6">{category.category}</h3>
+              <h3 className="text-2xl font-semibold text-center md:text-left mb-6">{category.name}</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center">
                 {category.skills.map((skill, index) => (
                   <motion.div

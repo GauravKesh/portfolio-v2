@@ -104,13 +104,13 @@ export default function ExperienceSection() {
                       </div>
 
                       <ul className="text-muted-foreground text-sm space-y-2 mb-6 ml-5 list-disc">
-                        {experience.description?.map((point, i) => (
+                        {experience.description?.map((point:string, i:any) => (
                           <li key={i} className="leading-relaxed">{point}</li>
                         ))}
                       </ul>
 
                       <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t border-border/40">
-                        {experience.skills.map((skill, i) => (
+                        {experience.skills.map((skill:string, i:any) => (
                           <Badge 
                             key={i} 
                             variant="secondary" 

@@ -1,3 +1,13 @@
+interface Skill {
+  name: string;
+  icon: string;
+}
+
+interface SkillCategory {
+  name: string;
+  skills: Skill[];
+}
+
 export const skillsData: SkillCategory[] = [
   {
     name: 'Frontend',

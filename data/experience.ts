@@ -1,3 +1,12 @@
+export interface ExperienceItem {
+  title: string;
+  company: string;
+  logo?:string
+  location: string;
+  period: string;
+  description: string[];
+  skills: string[];
+}
 export const experienceData: ExperienceItem[] = [
   {
     title: "SDE Intern",
