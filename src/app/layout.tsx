@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 import RippleEffect from "@/components/sections/RippleEffect";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Gaurav Kesh Roushan | Full-Stack Developer",
@@ -41,6 +42,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+  <link rel="icon" href="/favicon.ico" />
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Gaurav Kesh Roushan",
+        url: "https://gkrcoder.me",
+        jobTitle: "Full-Stack Developer",
+        sameAs: [
+          "https://github.com/gauravkesh",
+          "https://www.linkedin.com/in/gkrcoder",
+          "https://gkrcoder.me"
+        ]
+      }),
+    }}
+  />
+</Head>
       <body
         className={`${inter.className} min-h-screen bg-background text-foreground`}
       >
