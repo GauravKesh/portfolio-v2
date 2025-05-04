@@ -26,7 +26,7 @@ export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   return (
-    <section id="projects" className="py-20 px-4 md:px-6 bg-muted/30">
+    <section id="projects" className="py-20 px-4 md:px-6 bg-background">
       <div className="container mx-auto">
         <motion.div
           ref={ref}

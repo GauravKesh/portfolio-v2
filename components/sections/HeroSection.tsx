@@ -1,42 +1,69 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { SiTypescript, SiReact, SiNextdotjs } from "react-icons/si";
-
 import Link from "next/link";
 import Image from "next/image";
-import AnimatedText from "@/components/common/AnimatedText";
-import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collision";
+import { SparklesCore } from "@/components/ui/sparkles";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function HeroSection() {
+  const [mouseData, setMouseData] = useState({ x: 0, y: 0, vx: 0, vy: 0 });
+
+  useEffect(() => {
+    let lastX = 0;
+    let lastY = 0;
+    let lastTime = Date.now();
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const now = Date.now();
+      const dt = now - lastTime;
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      const vx = dx / dt;
+      const vy = dy / dt;
+
+      setMouseData({ x: e.clientX, y: e.clientY, vx, vy });
+
+      lastX = e.clientX;
+      lastY = e.clientY;
+      lastTime = now;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    // <BackgroundBeamsWithCollision>
     <section
       id="home"
-      className="relative min-h-[100vh] flex items-center justify-center py-20 px-4 md:px-6"
+      className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-6 overflow-hidden"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          className="absolute top-1/3 left-1/4 w-64 h-64 rounded-full bg-primary/5 dark:bg-primary/10"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.2, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-secondary/5 dark:bg-secondary/10"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{ duration: 10, repeat: Infinity, delay: 1 }}
+      {/* Background Sparkles */}
+      <div className="absolute inset-0 -z-10">
+        <SparklesCore
+          className="w-full h-full"
+          background="transparent"
+          minSize={2}
+          maxSize={3}
+          speed={5}
+          particleColor="#ffffff"
+          particleDensity={10}
+          // mouseVelocity={mouseData}
         />
       </div>
+      {/* d?: string;
+  className?: string;
+  background?: string;
+  particleSize?: number;
+  minSize?: number;
+  maxSize?: number;
+  speed?: number;
+  particleColor?: string;
+  particleDensity?: number; */}
 
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -45,7 +72,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col space-y-6 lg:order-1 order-2"
+            className="flex flex-col space-y-6"
           >
             <div className="space-y-2">
               <motion.p
@@ -57,29 +84,24 @@ export default function HeroSection() {
                 Hello, my name is
               </motion.p>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                <AnimatedText
-                  text="Gaurav Kesh Roushan"
-                  className="text-foreground"
-                />
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+                Gaurav Kesh Roushan
               </h1>
 
               <h2 className="text-3xl md:text-4xl font-bold text-muted-foreground">
-                <span className="text-muted-foreground">
-                  <Typewriter
-                    words={[
-                      "Full-Stack Developer",
-                      "Open Source Contributor",
-                      "Tech Community Lead",
-                    ]}
-                    loop={true}
-                    cursor
-                    cursorStyle="|"
-                    typeSpeed={70}
-                    deleteSpeed={50}
-                    delaySpeed={1000}
-                  />
-                </span>
+                <Typewriter
+                  words={[
+                    "Full-Stack Developer",
+                    "Open Source Contributor",
+                    "Tech Community Lead",
+                  ]}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
               </h2>
             </div>
 
@@ -101,15 +123,25 @@ export default function HeroSection() {
               className="flex flex-wrap gap-4"
             >
               <Button size="lg" asChild>
-                <Link href="/#projects">
-                  View My Work
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                <Link href="/#projects">View My Work</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/#contact">Get In Touch</Link>
               </Button>
             </motion.div>
+
+            {/* Technology Badges */}
+            <div className="flex gap-3 mt-4">
+              <Badge variant="secondary">
+                <SiReact className="mr-1" /> React
+              </Badge>
+              <Badge variant="secondary">
+                <SiNextdotjs className="mr-1" /> Next.js
+              </Badge>
+              <Badge variant="secondary">
+                <SiTypescript className="mr-1" /> TypeScript
+              </Badge>
+            </div>
           </motion.div>
 
           {/* Profile Image */}
@@ -117,26 +149,8 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative lg:order-2 order-1 mx-auto"
+            className="relative mx-auto"
           >
-            {/* Decorative SVG */}
-            <svg
-              viewBox="0 0 400 400"
-              xmlns="http://www.w3.org/2000/svg"
-              className="absolute -top-10 -left-10 w-[120%] h-[120%] -z-10 opacity-20 dark:opacity-25 blur-xl"
-            >
-              <defs>
-                <radialGradient id="bg-gradient" cx="50%" cy="50%" r="50%">
-                  <stop
-                    offset="0%"
-                    stopColor="var(--tw-prose)"
-                    stopOpacity="0.4"
-                  />
-                  <stop offset="100%" stopColor="transparent" />
-                </radialGradient>
-              </defs>
-              <circle cx="200" cy="200" r="200" fill="url(#bg-gradient)" />
-            </svg>
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background shadow-xl">
               <Image
                 src="https://media.licdn.com/dms/image/v2/D4E03AQFwx9_pSbHGzw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1715803087891?e=1751500800&v=beta&t=FFBUpPcuiMDUpwmfOA4zW7oFM46OKj1LtIYrY1ycvSE"
@@ -147,29 +161,9 @@ export default function HeroSection() {
                 className="object-cover"
               />
             </div>
-
-            {/* Optional animated color blur */}
-            <motion.div
-              className="absolute -z-10 inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 blur-2xl"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 5, repeat: Infinity }}
-            />
           </motion.div>
         </div>
-
-        {/* Scroll Down Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{ delay: 2, duration: 1.5, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
-        >
-          <Link href="/#about" aria-label="Scroll to About section">
-            <ChevronDown className="h-10 w-10 text-muted-foreground" />
-          </Link>
-        </motion.div>
       </div>
     </section>
-    // </BackgroundBeamsWithCollision>
   );
 }

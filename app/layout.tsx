@@ -5,6 +5,7 @@ import { ThemeProvider } from "./ThemeProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
+import RippleEffect from "@/components/sections/RippleEffect";
 
 export const metadata: Metadata = {
   title: "Professional Portfolio | Developer & Designer",
@@ -20,16 +21,18 @@ export const metadata: Metadata = {
     "next.js",
     "typescript",
   ],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://gkrcoder.vercel.app",
-    title: "Professional Portfolio | Developer & Designer",
-    description:
-      "A showcase of my projects, skills, and experience as a full-stack developer.",
-    siteName: "Developer Portfolio",
-  },
+  // openGraph: {
+  //   type: "website",
+  //   locale: "en_US",
+  //   url: "https://gkrcoder.vercel.app",
+  //   title: "Professional Portfolio | Developer & Designer",
+  //   description:
+  //     "A showcase of my projects, skills, and experience as a full-stack developer.",
+  //   siteName: "Developer Portfolio",
+  // },
 };
+
+
 
 export default function RootLayout({
   children,
@@ -44,7 +47,12 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
-              <main className="flex-1">{children}</main>
+
+            <main className="flex-1">
+              <RippleEffect /> 
+              {children}
+            </main>
+
             <Footer />
           </div>
         </ThemeProvider>

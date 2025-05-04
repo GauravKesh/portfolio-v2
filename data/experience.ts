@@ -1,47 +1,40 @@
-export interface ExperienceItem {
-  title: string;
-  company: string;
-  location: string;
-  period: string;
-  description: string;
-  skills: string[];
-}
-
 export const experienceData: ExperienceItem[] = [
   {
-    title: "Senior Frontend Developer",
-    company: "TechCorp Inc.",
-    location: "San Francisco, CA",
-    period: "January 2022 - Present",
-    description:
-      "Lead developer for the company's flagship SaaS platform. Implemented new features, improved performance, and mentored junior developers. Reduced load times by 40% through code optimization and modern rendering techniques.",
-    skills: ["React", "TypeScript", "Next.js", "GraphQL", "TailwindCSS"],
+    title: "SDE Intern",
+    company: "CliniChat.ai",
+    location: "Rome, Latium, Italy · Remote",
+    period: "April 2025 - Present",
+    description: [
+      "Contributing to the development of healthcare SaaS solutions using Django, Next.js, and PostgreSQL.",
+      "Implemented secure and scalable REST APIs using Django REST Framework.",
+      "Collaborated on full-stack features, integrating MongoDB for document-based storage needs."
+    ],
+    skills: ["Django", "Django REST Framework", "Next.js", "PostgreSQL", "MongoDB", "React.js", "TypeScript", "Git"],
+  },
+
+  {
+    title: "SDE Intern",
+    company: "Eloquente AI",
+    location: "Bengaluru, Karnataka, India · Remote",
+    period: "February 2025 - April 2025",
+    description: [
+      "Built and integrated full-stack modules using Django, PostgreSQL, and React.js.",
+      "Contributed to RESTful API development and implemented responsive UI with Tailwind CSS.",
+      "Participated in code reviews and collaborated on improving frontend performance."
+    ],
+    skills: ["Django", "PostgreSQL", "React.js", "TypeScript", "REST APIs", "Tailwind CSS"],
   },
   {
-    title: "Full Stack Developer",
-    company: "InnovateSoft",
-    location: "Boston, MA",
-    period: "March 2020 - December 2021",
-    description:
-      "Worked on multiple projects across the stack, from designing database schemas to building responsive user interfaces. Collaborated closely with design and product teams to deliver high-quality software solutions.",
-    skills: ["JavaScript", "Node.js", "MongoDB", "Express", "React", "AWS"],
+    title: "Full Stack Web Developer",
+    company: "Accura Tequipment",
+    location: "Bengaluru, Karnataka, India · On-site",
+    period: "June 2024 - September 2024",
+    description: [
+      "Led backend development for a custom LMS using Node.js and MongoDB.",
+      "Improved website SEO by 50% and integrated frontend with backend services.",
+      "Deployed both frontend and backend and conducted extensive API testing using Postman."
+    ],
+    skills: ["Node.js", "Express.js", "MongoDB", "Next.js", "TypeScript", "React.js", "SEO", "Tailwind CSS"],
   },
-  {
-    title: "Web Developer",
-    company: "CreativeDigital",
-    location: "Remote",
-    period: "June 2018 - February 2020",
-    description:
-      "Developed websites and web applications for various clients across multiple industries. Ensured responsiveness across devices and browsers while maintaining clean, maintainable code.",
-    skills: ["HTML", "CSS", "JavaScript", "WordPress", "PHP", "MySQL"],
-  },
-  {
-    title: "Junior Developer",
-    company: "StartupHub",
-    location: "Austin, TX",
-    period: "January 2017 - May 2018",
-    description:
-      "Started as an intern and quickly grew into a full-time role. Assisted in the development of a customer-facing web application and contributed to the company's internal tools.",
-    skills: ["JavaScript", "jQuery", "Bootstrap", "PHP", "Git"],
-  },
+  
 ];

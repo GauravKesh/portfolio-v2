@@ -14,8 +14,8 @@ export default function AboutSection() {
   })
 
   return (
-    <section id="about" className="py-20 px-4 md:px-6 bg-muted/30">
-      <div className="container mx-auto">
+    <section id="about" className="py-20 px-4 md:px-6 bg-background ">
+      <div className="container mx-auto ">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}

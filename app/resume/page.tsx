@@ -18,7 +18,7 @@ const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_ID
 
 export default function ResumePage() {
   return (
-    <div className="relative min-h-screen bg-white py-10 px-4 md:px-6">
+    <div className=" min-h-screen bg-white py-10 px-4 md:px-6">
       <div className="mb-6 flex items-center justify-between max-w-5xl mx-auto">
         {/* <Link href="/">
           <Button variant="ghost" className="flex items-center gap-2">
