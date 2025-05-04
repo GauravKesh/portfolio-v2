@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 import RippleEffect from "@/components/sections/RippleEffect";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Gaurav Kesh Roushan | Full-Stack Developer",
@@ -44,6 +45,7 @@ export default function RootLayout({
         className={`${inter.className} min-h-screen bg-background text-foreground`}
       >
         <Analytics />
+        <SpeedInsights/>
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
