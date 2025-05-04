@@ -189,7 +189,7 @@ export default function AboutPage() {
                 }}
               >
                 I craft modern, high-performance web applications with a focus
-                on user experience and clean code. With 6+ years of experience
+                on user experience and clean code. With 1.5+ years of experience
                 in web development, I specialize in React, TypeScript, and
                 modern JavaScript frameworks.
               </motion.p>
