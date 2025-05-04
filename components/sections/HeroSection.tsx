@@ -5,17 +5,13 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { SiTypescript, SiReact, SiNextdotjs } from "react-icons/si";
-
 import Link from "next/link";
 import Image from "next/image";
 import AnimatedText from "@/components/common/AnimatedText";
 import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collision";
 import { Spotlight } from "../ui/Spotlight";
 
-
-
 export default function HeroSection() {
-
   const [ripples, setRipples] = useState<any[]>([]);
 
   // Function to handle the click and create the ripple
@@ -38,7 +34,7 @@ export default function HeroSection() {
       className="relative min-h-[100vh] flex items-center justify-center py-20 px-4 md:px-6 overflow-hidden"
       onClick={createRipple}
     >
-        <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none">
         {ripples.map((ripple) => (
           <motion.div
             key={ripple.id}
@@ -124,9 +120,21 @@ export default function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-lg text-primary font-medium"
+                className="text-lg text-primary font-medium flex items-center gap-2"
               >
                 Hello, my name is
+                <motion.span
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: [0, 20, -10, 20, -10, 0] }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatDelay: 2,
+                  }}
+                  className="inline-block origin-bottom"
+                >
+                  👋
+                </motion.span>
               </motion.p>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
@@ -141,29 +149,49 @@ export default function HeroSection() {
                   <Typewriter
                     words={[
                       "Full-Stack Developer",
+                      "Backend Developer",
                       "Open Source Contributor",
                       "Tech Community Lead",
                     ]}
                     loop={true}
                     cursor
-                    cursorStyle="|"
+                    cursorStyle="_"
                     typeSpeed={70}
-                    deleteSpeed={50}
-                    delaySpeed={1000}
+                    deleteSpeed={90}
+                    delaySpeed={2000}
                   />
                 </span>
               </h2>
             </div>
-
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.4 }}
               className="text-muted-foreground max-w-xl text-lg"
             >
-              I'm a full-stack developer specializing in building exceptional
-              digital experiences. Currently, I'm focused on building
-              accessible, human-centered products.
+              I'm a{" "}
+              <span className="text-foreground font-medium">
+                Full-stack software developer
+              </span>{" "}
+              passionate about building
+              <span className="text-foreground font-medium px-1">
+                scalable
+              </span>{" "}
+              solutions in
+              <span className="text-foreground font-medium px-1">
+                health tech
+              </span>
+              , <span className="text-foreground font-medium">AI</span>, and
+              <span className="text-foreground font-medium px-1">SaaS</span>. I
+              focus on creating
+              <span className="text-foreground font-medium px-1">
+                robust, production-ready systems
+              </span>{" "}
+              that deliver
+              <span className="text-foreground font-medium px-1">
+                real-world impact
+              </span>
+              .
             </motion.p>
 
             <motion.div
@@ -245,7 +273,6 @@ export default function HeroSection() {
           </Link>
         </motion.div>
       </div>
-
     </section>
   );
 }

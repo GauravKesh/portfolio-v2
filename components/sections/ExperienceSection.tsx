@@ -31,7 +31,10 @@ export default function ExperienceSection() {
   };
 
   return (
-    <section id="experience" className="py-24 px-4 md:px-6 bg-gradient-to-b from-background to-background/50">
+    <section
+      id="experience"
+      className="py-24 px-4 md:px-6 bg-gradient-to-b from-background to-background/50"
+    >
       <div className="container mx-auto max-w-5xl">
         <motion.div
           ref={ref}
@@ -40,17 +43,22 @@ export default function ExperienceSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <Badge variant="outline" className="text-sm font-medium mb-3 px-4 py-1.5">
+          <Badge
+            variant="outline"
+            className="text-sm font-medium mb-3 px-4 py-1.5"
+          >
             <BriefcaseIcon className="h-4 w-4 mr-2" />
             Career Path
           </Badge>
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">Professional Experience</h2>
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Professional Experience
+          </h2>
           <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full mt-5"></div>
         </motion.div>
 
         <div className="relative">
           {/* Timeline vertical line */}
-          <div className="absolute left-4 md:left-8 top-12 h-[calc(100%-6rem)] w-1 bg-border/40 rounded-full z-0">
+          <div className="absolute left-4 md:left-8 top-2 h-[calc(100%-6rem)] w-1 bg-border/40 rounded-full z-0">
             <div className="sticky top-1/2 w-full h-12 bg-gradient-to-b from-transparent via-primary/30 to-transparent blur-sm"></div>
           </div>
 
@@ -66,18 +74,19 @@ export default function ExperienceSection() {
                 variants={itemVariants}
                 className="group relative pl-16 md:pl-36"
               >
-               <div className="absolute left-4 md:left-8 top-12 z-10 -translate-x-1/2">
-                    <div className="h-5 w-5 rounded-full  group-hover:border-primary group-hover:scale-110 transition-all duration-300"> <BriefcaseIcon className="h-4 w-4 ml-1" /></div>
+                <div className="absolute left-4 md:left-8 top-2 z-10 -translate-x-1/2">
+                  <div className="h-5 w-5 rounded-full  group-hover:border-primary group-hover:scale-110 transition-all duration-300">
+                    {" "}
+                    <BriefcaseIcon className="h-4 w-4 ml-1" />
                   </div>
-
-                  
+                </div>
 
                 <div className="relative bg-card hover:bg-card/80 border border-border/40 hover:border-primary/30 rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
                   {/* Color accent bar */}
                   <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-primary to-primary/50"></div>
                   <div className="absolute top-0 left-0 -mt-3 -ml-3 bg-background px-3 py-3 rounded-full border border-border text-xs font-semibold">
-                      {experience.period}
-                    </div>
+                    {experience.period}
+                  </div>
                   {/* Content */}
                   <div className="grid grid-cols-1 md:grid-cols-12 p-6 md:p-8 gap-6">
                     {/* Left Column - Date & Company */}
@@ -104,16 +113,20 @@ export default function ExperienceSection() {
                       </div>
 
                       <ul className="text-muted-foreground text-sm space-y-2 mb-6 ml-5 list-disc">
-                        {experience.description?.map((point:string, i:any) => (
-                          <li key={i} className="leading-relaxed">{point}</li>
-                        ))}
+                        {experience.description?.map(
+                          (point: string, i: any) => (
+                            <li key={i} className="leading-relaxed">
+                              {point}
+                            </li>
+                          )
+                        )}
                       </ul>
 
                       <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t border-border/40">
-                        {experience.skills.map((skill:string, i:any) => (
-                          <Badge 
-                            key={i} 
-                            variant="secondary" 
+                        {experience.skills.map((skill: string, i: any) => (
+                          <Badge
+                            key={i}
+                            variant="secondary"
                             className="text-xs font-medium px-3 py-1 bg-secondary/30 hover:bg-secondary/40 transition-colors"
                           >
                             {skill}

@@ -3,6 +3,7 @@ export interface EducationItem {
   institution: string;
   location: string;
   period: string;
+  grade?:string;
   description: string;
   achievements: string[];
   keySkills?: string[];
@@ -15,6 +16,7 @@ export const educationData: EducationItem[] = [
     institution: "Presidency University Bengaluru",
     location: "Bengaluru, Karnataka, IN",
     period: "Aug 2023 - Aug 2027",
+    grade:"8.34 CGPA",
     description:
       "Completed coursework in algorithms, data structures, software engineering, artificial intelligence, machine learning, and finance.",
     achievements: [
@@ -32,6 +34,7 @@ export const educationData: EducationItem[] = [
     institution: "Kendriya Vidyalaya Karwar",
     location: "Karwar, Karnataka, IN",
     period: "Aug 2020 - Jul 2022",
+    grade:"88.8%",
     description:
       "Completed senior secondary education with a focus on science and computer science.",
     achievements: [
