@@ -6,10 +6,12 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 import RippleEffect from "@/components/sections/RippleEffect";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Gaurav Kesh Roushan | Full-Stack Developer",
-  description: "Explore the portfolio of Gaurav Kesh Roushan – full-stack developer specializing in scalable web applications using React, Next.js, Node.js, and Django.",
+  description:
+    "Explore the portfolio of Gaurav Kesh Roushan – full-stack developer specializing in scalable web applications using React, Next.js, Node.js, and Django.",
   keywords: [
     "full-stack developer",
     "portfolio",
@@ -25,12 +27,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://gkrcoder.vercel.app",
     title: "Gaurav Kesh Roushan | Full-Stack Developer",
-    description: "Building performant, scalable, and modern web applications using React, Next.js, Django, and more.",
+    description:
+      "Building performant, scalable, and modern web applications using React, Next.js, Django, and more.",
     siteName: "Gaurav Kesh Roushan",
   },
 };
-
-
 
 export default function RootLayout({
   children,
@@ -42,12 +43,13 @@ export default function RootLayout({
       <body
         className={`${inter.className} min-h-screen bg-background text-foreground`}
       >
+        <Analytics />
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
 
             <main className="flex-1">
-              <RippleEffect /> 
+              <RippleEffect />
               {children}
             </main>
 
