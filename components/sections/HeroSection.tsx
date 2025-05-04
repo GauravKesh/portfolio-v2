@@ -201,13 +201,13 @@ export default function HeroSection() {
               className="flex flex-wrap gap-4"
             >
               <Button size="lg" asChild>
-                <Link href="/#projects">
-                  View My Work
+                <Link href="/about">
+                  View More
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/#contact">Get In Touch</Link>
+                <Link href="/contact">Get In Touch</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -268,7 +268,7 @@ export default function HeroSection() {
           transition={{ delay: 2, duration: 1.5, repeat: Infinity }}
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
         >
-          <Link href="/#about" aria-label="Scroll to About section">
+          <Link href="/#projects" aria-label="Scroll to About section">
             <ChevronDown className="h-10 w-10 text-muted-foreground" />
           </Link>
         </motion.div>

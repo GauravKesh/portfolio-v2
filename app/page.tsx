@@ -1,23 +1,36 @@
 import HeroSection from '@/components/sections/HeroSection'
-import AboutSection from '@/components/sections/AboutSection'
-import ExperienceSection from '@/components/sections/ExperienceSection'
-import EducationSection from '@/components/sections/EducationSection'
-import SkillsSection from '@/components/sections/SkillsSection'
 import ProjectsSection from '@/components/sections/ProjectsSection'
-import BlogSection from '@/components/sections/BlogSection'
-import ContactSection from '@/components/sections/ContactSection'
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gaurav Kesh Roushan | Full-Stack Developer",
+  description: "Explore the portfolio of Gaurav Kesh Roushan – full-stack developer specializing in scalable web applications using React, Next.js, Node.js, and Django.",
+  keywords: [
+    "full-stack developer",
+    "portfolio",
+    "React.js",
+    "Next.js",
+    "Node.js",
+    "Django",
+    "TypeScript",
+    "web development",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://gkrcoder.vercel.app",
+    title: "Gaurav Kesh Roushan | Full-Stack Developer",
+    description: "Building performant, scalable, and modern web applications using React, Next.js, Django, and more.",
+    siteName: "Gaurav Kesh Roushan",
+  },
+};
+
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
       <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <EducationSection />
-      <SkillsSection />
       <ProjectsSection />
-      {/* <BlogSection /> */}
-      <ContactSection />
     </div>
   )
 }

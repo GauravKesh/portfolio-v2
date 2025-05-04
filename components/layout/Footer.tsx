@@ -37,7 +37,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Bio */}
           <div className="space-y-4">
-            <h2 className="text-xl font-bold">Portfolio</h2>
+            <h2 className="text-xl font-bold">GKR</h2>
             <p className="text-muted-foreground max-w-md">
               Full-stack developer specializing in building exceptional digital
               experiences. Always looking for new challenges and opportunities
@@ -50,43 +50,43 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <div className="grid grid-cols-2 gap-2">
               <Link
-                href="/#home"
+                href="/"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 Home
               </Link>
               <Link
-                href="/#about"
+                href="/about"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 About
               </Link>
               <Link
-                href="/#experience"
+                href="/experience"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 Experience
               </Link>
               <Link
-                href="/#skills"
+                href="/skills"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 Skills
               </Link>
               <Link
-                href="/#projects"
+                href="/projects"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 Projects
               </Link>
               <Link
-                href="/#blog"
+                href="/blog"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 Blog
               </Link>
               <Link
-                href="/#contact"
+                href="/contact"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 Contact

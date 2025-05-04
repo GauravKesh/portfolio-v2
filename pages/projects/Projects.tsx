@@ -11,7 +11,7 @@ import { Github, ExternalLink, X, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProjectsSection() {
+export default function Projects() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -101,15 +101,15 @@ export default function ProjectsSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <span className="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 inline-block">
-            My Work
-          </span>
+          {/* <span className="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 inline-block">
+          Projects
+          </span> */}
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Featured Projects
+          All Projects
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto text-lg">
-            A selection of my recent work and personal projects that showcase my skills and passion
+          Explore all my professional, academic, and personal projects that highlight my journey as a developer.
           </p>
         </motion.div>
 
@@ -120,7 +120,7 @@ export default function ProjectsSection() {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {projectsData.slice(0, 3).map((project, index) => (
+          {projectsData.map((project, index) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
@@ -262,28 +262,7 @@ export default function ProjectsSection() {
         </motion.div>
 
         {/* Custom animated "View All Projects" button */}
-        <motion.div 
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-        >
-          <Link href="/projects">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 group px-8"
-            >
-              View All Projects
-              <motion.span
-                className="inline-block ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              >
-                <ArrowRight className="h-5 w-5" />
-              </motion.span>
-            </Button>
-          </Link>
-        </motion.div>
+       
       </div>
 
       {/* Project Modal */}

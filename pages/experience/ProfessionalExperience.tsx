@@ -4,8 +4,9 @@ import { useInView } from "react-intersection-observer";
 import { Badge } from "@/components/ui/badge";
 import { experienceData } from "@/data/experience";
 import { BriefcaseIcon, ArrowUpRight, Building2, Calendar } from "lucide-react";
+import CallToAction from "@/components/sections/CallToAction";
 
-export default function ExperienceSection() {
+export default function ProfessionalExperience() {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -141,6 +142,7 @@ export default function ExperienceSection() {
           </motion.div>
         </div>
       </div>
+      
     </section>
   );
 }

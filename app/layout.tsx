@@ -8,28 +8,26 @@ const inter = Inter({ subsets: ["latin"] });
 import RippleEffect from "@/components/sections/RippleEffect";
 
 export const metadata: Metadata = {
-  title: "Professional Portfolio | Developer & Designer",
-  description:
-    "A showcase of my projects, skills, and experience as a full-stack developer.",
+  title: "Gaurav Kesh Roushan | Full-Stack Developer",
+  description: "Explore the portfolio of Gaurav Kesh Roushan – full-stack developer specializing in scalable web applications using React, Next.js, Node.js, and Django.",
   keywords: [
-    "developer",
+    "full-stack developer",
     "portfolio",
-    "projects",
-    "skills",
-    "experience",
-    "react",
-    "next.js",
-    "typescript",
+    "React.js",
+    "Next.js",
+    "Node.js",
+    "Django",
+    "TypeScript",
+    "web development",
   ],
-  // openGraph: {
-  //   type: "website",
-  //   locale: "en_US",
-  //   url: "https://gkrcoder.vercel.app",
-  //   title: "Professional Portfolio | Developer & Designer",
-  //   description:
-  //     "A showcase of my projects, skills, and experience as a full-stack developer.",
-  //   siteName: "Developer Portfolio",
-  // },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://gkrcoder.vercel.app",
+    title: "Gaurav Kesh Roushan | Full-Stack Developer",
+    description: "Building performant, scalable, and modern web applications using React, Next.js, Django, and more.",
+    siteName: "Gaurav Kesh Roushan",
+  },
 };
 
 

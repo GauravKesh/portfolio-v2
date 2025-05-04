@@ -9,12 +9,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 const navItems = [
-  { name: 'Home', href: '/#home' },
-  { name: 'About', href: '/#about' },
-  { name: 'Experience', href: '/#experience' },
-  { name: 'Skills', href: '/#skills' },
-  { name: 'Projects', href: '/#projects' },
-  { name: 'Contact', href: '/#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Skills', href: '/skills' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 const navVariants = {
@@ -93,7 +93,7 @@ export default function Header() {
                 <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </Button>
 
-              <Link href="/#contact">
+              <Link href="/contact">
                 <Button className="ml-1">Hire Me</Button>
               </Link>
             </motion.div>
