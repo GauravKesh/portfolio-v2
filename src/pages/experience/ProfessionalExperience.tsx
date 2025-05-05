@@ -108,8 +108,8 @@ export default function ProfessionalExperience() {
                           {experience.title}
                         </h3>
                         <div className="hidden md:flex items-center text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                          <span className="mr-1">View Details</span>
-                          <ArrowUpRight className="h-4 w-4" />
+                          {/* <span className="mr-1">View Details</span> */}
+                          {/* <ArrowUpRight className="h-4 w-4" /> */}
                         </div>
                       </div>
 
