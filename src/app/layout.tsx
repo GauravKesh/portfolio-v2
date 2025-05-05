@@ -9,6 +9,8 @@ import RippleEffect from "@/components/sections/RippleEffect";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 import Head from "next/head";
 
 export const metadata: Metadata = {
@@ -76,6 +78,7 @@ export default function RootLayout({
         />
       </Head>
       <GoogleTagManager gtmId="GTM-MKJKLDVR" />
+      <GoogleAnalytics gaId="G-G7S9DFLMPY" />
       <body
         className={`${inter.className} min-h-screen bg-background text-foreground`}
       >
