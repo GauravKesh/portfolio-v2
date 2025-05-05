@@ -76,12 +76,11 @@ export default function LoadingPage() {
 
   // Text items for the loading screen
   const loadingTexts = [
-    'Initializing environment...',
-    'Loading assets...',
-    'Preparing animations...',
-    'Optimizing performance...',
-    'Almost ready...'
-  ]
+        'Just a moment...',
+        'Getting things ready for you...',
+        'Final touches happening now...',
+        'Almost there!...'
+      ];
 
   return (
     <>
