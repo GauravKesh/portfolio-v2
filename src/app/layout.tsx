@@ -6,13 +6,15 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 import RippleEffect from "@/components/sections/RippleEffect";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Gaurav Kesh Roushan | Full-Stack Software Developer",
-  description: "Portfolio of Gaurav Kesh Roushan – full-stack software developer skilled in React, Next.js, Django, Node.js, TypeScript. Explore projects, skills, experience, and tech blogs.",
+  description:
+    "Portfolio of Gaurav Kesh Roushan – full-stack software developer skilled in React, Next.js, Django, Node.js, TypeScript. Explore projects, skills, experience, and tech blogs.",
   keywords: [
     "full-stack developer portfolio",
     "Gaurav Kesh Roushan",
@@ -40,11 +42,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://gkrcoder.vercel.app",
     title: "Gaurav Kesh Roushan | Full-Stack Developer Portfolio",
-    description: "Explore my full-stack developer profile, technical stack, project showcases, and career highlights.",
+    description:
+      "Explore my full-stack developer profile, technical stack, project showcases, and career highlights.",
     siteName: "Gaurav Kesh Roushan",
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -54,30 +56,31 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <Head>
-  <link rel="icon" href="/favicon.ico" />
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        name: "Gaurav Kesh Roushan",
-        url: "https://gkrcoder.me",
-        jobTitle: "Full-Stack Developer",
-        sameAs: [
-          "https://github.com/gauravkesh",
-          "https://www.linkedin.com/in/gkrcoder",
-          "https://gkrcoder.me"
-        ]
-      }),
-    }}
-  />
-</Head>
+        <link rel="icon" href="/favicon.ico" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Gaurav Kesh Roushan",
+              url: "https://gkrcoder.me",
+              jobTitle: "Full-Stack Developer",
+              sameAs: [
+                "https://github.com/gauravkesh",
+                "https://www.linkedin.com/in/gkrcoder",
+                "https://gkrcoder.me",
+              ],
+            }),
+          }}
+        />
+      </Head>
+      <GoogleTagManager gtmId="GTM-MKJKLDVR" />
       <body
         className={`${inter.className} min-h-screen bg-background text-foreground`}
       >
         <Analytics />
-        <SpeedInsights/>
+        <SpeedInsights />
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
