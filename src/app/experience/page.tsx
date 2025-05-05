@@ -4,27 +4,36 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Gaurav Kesh Roushan | Experience",
-  description: "Explore my professional journey, internships, roles, and key contributions across companies and open-source projects.",
+  title: "Professional Experience | Gaurav Kesh Roushan",
+  description: "See my roles as an SDE intern, open-source contributor, and team lead. Explore my work history, companies, and achievements.",
   keywords: [
-    "experience",
-    "internship",
-    "roles",
-    "work history",
-    "open source",
-    "developer",
-    "career",
-    "resume",
+    "developer experience",
+    "software engineer work history",
+    "internship experience",
+    "full-stack developer resume",
+    "SDE intern",
+    "developer roles",
+    "CliniChat",
+    "Eloquente AI",
+    "open source contributions",
+    "coding mentorship",
+    "lead developer",
+    "engineering timeline",
+    "project lead experience",
+    "software development experience",
+    "professional journey",
+    "developer CV",
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://gkrcoder.vercel.app/experience",
-    title: "Gaurav Kesh Roushan | Experience",
-    description: "An overview of my software development experience and contributions in various organizations.",
+    title: "Professional Experience | Gaurav Kesh Roushan",
+    description: "Detailed breakdown of my work experience in startups, internships, and open-source projects.",
     siteName: "Gaurav Kesh Roushan",
   },
 };
+
 
 
 export default function page() {

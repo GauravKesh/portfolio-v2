@@ -4,26 +4,34 @@ import React from 'react'
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gaurav Kesh Roushan | About",
-  description: "A complete introduction about me, my journey, vision, and passion for full-stack development.",
+  title: "About Gaurav Kesh Roushan | Full-Stack Developer",
+  description: "Learn about Gaurav Kesh Roushan’s background, journey, career goals, technical expertise, and experience as a full-stack engineer.",
   keywords: [
-    "about",
+    "about me developer",
     "Gaurav Kesh Roushan",
+    "Gaurav Kesh Roushan biography",
     "developer story",
-    "career",
-    "background",
-    "journey",
-    "developer introduction",
+    "software engineer introduction",
+    "personal brand developer",
+    "web developer background",
+    "career journey",
+    "developer profile",
+    "software engineer from India",
+    "developer mission and vision",
+    "portfolio about page",
+    "self-taught developer story",
+    "tech lead background",
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://gkrcoder.vercel.app/about",
-    title: "Gaurav Kesh Roushan | About",
-    description: "Learn more about my background, interests, and motivation as a full-stack developer.",
+    title: "About Gaurav Kesh Roushan | Full-Stack Developer",
+    description: "Understand my professional journey, growth, and goals as a full-stack engineer.",
     siteName: "Gaurav Kesh Roushan",
   },
 };
+
 
 
 function page() {

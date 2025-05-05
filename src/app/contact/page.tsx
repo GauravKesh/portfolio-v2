@@ -1,27 +1,35 @@
 import ContactSection from '@/components/sections/ContactSection'
 import { Metadata } from 'next';
 import React from 'react'
+
 export const metadata: Metadata = {
-  title: "Gaurav Kesh Roushan | Contact",
-  description: "Get in touch for collaboration, mentorship, or hiring opportunities. Let's build something impactful together.",
+  title: "Contact Gaurav Kesh Roushan | Developer Collaboration",
+  description: "Reach out to collaborate, connect, or discuss new opportunities. Available for freelance, open-source, or startup ventures.",
   keywords: [
-    "contact",
-    "hire developer",
-    "connect",
-    "collaboration",
-    "email",
-    "networking",
-    "Gaurav Kesh Roushan",
+    "contact developer",
+    "hire full-stack developer",
+    "freelance software engineer",
+    "connect with Gaurav",
+    "developer contact form",
+    "startup collaboration",
+    "open source collaboration",
+    "network with developers",
+    "developer inquiry",
+    "software engineer India",
+    "portfolio contact page",
+    "tech hiring",
+    "reach out developer",
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://gkrcoder.vercel.app/contact",
-    title: "Gaurav Kesh Roushan | Contact",
-    description: "Reach out to me for collaboration or to discuss new opportunities.",
+    title: "Contact Gaurav Kesh Roushan | Developer Collaboration",
+    description: "Get in touch for freelance work, internships, mentorship, or collaborative tech projects.",
     siteName: "Gaurav Kesh Roushan",
   },
 };
+
 
 export default function page() {
   return (
