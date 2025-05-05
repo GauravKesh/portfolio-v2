@@ -105,7 +105,7 @@ export default function LoadingPage() {
                 animate={{ 
                   opacity: 1, 
                   scale: 1,
-                  rotateY: [0, 360],
+                  // rotateY: [0, 360],
                   transition: {
                     rotateY: {
                       repeat: Infinity,
@@ -296,7 +296,7 @@ export default function LoadingPage() {
                 </svg>
                 
                 {/* Floating particles */}
-                <div className="pointer-events-none absolute inset-0">
+                {/* <div className="pointer-events-none absolute inset-0">
                   {Array.from({ length: 30 }).map((_, i) => (
                     <motion.div
                       key={i}
@@ -324,7 +324,7 @@ export default function LoadingPage() {
                       }}
                     />
                   ))}
-                </div>
+                </div> */}
                 
                 {/* Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/30" />
