@@ -11,8 +11,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import Head from "next/head";
 
 export const metadata: Metadata = {
-  title: "Gaurav Kesh Roushan | Full-Stack Developer Portfolio",
-  description: "Portfolio of Gaurav Kesh Roushan – full-stack developer skilled in React, Next.js, Django, Node.js, TypeScript. Explore projects, skills, experience, and tech blogs.",
+  title: "Gaurav Kesh Roushan | Full-Stack Software Developer",
+  description: "Portfolio of Gaurav Kesh Roushan – full-stack software developer skilled in React, Next.js, Django, Node.js, TypeScript. Explore projects, skills, experience, and tech blogs.",
   keywords: [
     "full-stack developer portfolio",
     "Gaurav Kesh Roushan",
