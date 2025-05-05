@@ -12,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 import Head from "next/head";
+import LoadingWrapper from "@/components/common/LoadingWrapper";
 
 export const metadata: Metadata = {
   title: "Gaurav Kesh Roushan | Full-Stack Software Developer",
@@ -85,6 +86,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <ThemeProvider>
+        <LoadingWrapper>
           <div className="flex min-h-screen flex-col">
             <Header />
 
@@ -95,6 +97,7 @@ export default function RootLayout({
 
             <Footer />
           </div>
+        </LoadingWrapper>
         </ThemeProvider>
       </body>
     </html>
