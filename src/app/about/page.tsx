@@ -4,7 +4,7 @@ import React from 'react'
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Gaurav Kesh Roushan | Full-Stack Developer",
+  title: " Gaurav Kesh Roushan",
   description: "Learn about Gaurav Kesh Roushan’s background, journey, career goals, technical expertise, and experience as a full-stack engineer.",
   keywords: [
     "about me developer",

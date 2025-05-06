@@ -15,7 +15,7 @@ import Head from "next/head";
 import LoadingWrapper from "@/components/common/LoadingWrapper";
 
 export const metadata: Metadata = {
-  title: "Gaurav Kesh Roushan | Full-Stack Software Developer",
+  title: "Gaurav Kesh Roushan",
   description:
     "Portfolio of Gaurav Kesh Roushan – full-stack software developer skilled in React, Next.js, Django, Node.js, TypeScript. Explore projects, skills, experience, and tech blogs.",
   keywords: [
