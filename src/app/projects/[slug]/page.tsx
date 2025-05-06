@@ -22,8 +22,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return <ProjectDetails slug={slug} />
 }
 
-// export function generateStaticParams() {
-//   return projectsData.map((project) => ({
-//     slug: project.slug,
-//   }))
-// }
+export function generateStaticParams() {
+  return projectsData.map((project) => ({
+    slug: project.slug,
+  }))
+}
