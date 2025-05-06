@@ -148,6 +148,7 @@ export default function Projects() {
                     className={`object-cover transition-transform duration-700 ${
                       hoveredIndex === index ? 'scale-110' : 'scale-100'
                     }`}
+                    priority
                   />
                   <div 
                     className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 flex items-end p-6 ${

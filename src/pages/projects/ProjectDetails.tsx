@@ -188,7 +188,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
               style={{ y: titleY }}
               className="max-w-3xl"
             >
-              <Link href="/projects" className="inline-flex items-center text-primary/80 hover:text-primary mb-4 group">
+              <Link href="/projects" className="inline-flex items-center text-primary/80 hover:text-primary mb-4 group ">
                 <ArrowLeft className="h-4 w-4 mr-1 group-hover:-translate-x-1 transition-transform" />
                 <span className="text-sm">Back to projects</span>
               </Link>

@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import LoadingPage from './LoadingPage'
+import { CodeIcon } from 'lucide-react'
+import AnimatedCodeIcon from './AnimatedCodeIcon'
 
 interface LoadingWrapperProps {
   children: React.ReactNode

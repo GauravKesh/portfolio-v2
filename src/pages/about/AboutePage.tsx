@@ -290,6 +290,7 @@ export default function AboutPage() {
                     alt="Gaurav Kesh Roushan - Full Stack Developer"
                     fill
                     className="object-cover"
+                    priority
                   />
                 </div>
 
