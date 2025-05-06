@@ -1,86 +1,80 @@
+"use client";
 
-'use client'
-
-import { useEffect, useState, useRef } from 'react'
-import { motion, AnimatePresence, useAnimate } from 'framer-motion'
-import { cn } from '@/lib/utils'
+import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useAnimate } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function LoadingPage() {
-  const [loading, setLoading] = useState(true)
-  const [progress, setProgress] = useState(0)
-  const [showContent, setShowContent] = useState(false)
-  const [scope, animate] = useAnimate()
-  const pathRef = useRef<SVGPathElement>(null)
-  
+  const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [showContent, setShowContent] = useState(false);
+  const [scope, animate] = useAnimate();
+  const pathRef = useRef<SVGPathElement>(null);
+
   // Current animation state
-  const [currentText, setCurrentText] = useState(0)
+  const [currentText, setCurrentText] = useState(0);
 
   useEffect(() => {
     // Simulate loading progress
     const interval = setInterval(() => {
-      setProgress(prev => {
-        const newProgress = Math.min(prev + Math.random() * 5 + 1, 100)
-        
+      setProgress((prev) => {
+        const newProgress = Math.min(prev + Math.random() * 5 + 1, 100);
+
         // Update text based on progress
-        if (newProgress > 25 && currentText === 0) setCurrentText(1)
-        if (newProgress > 50 && currentText === 1) setCurrentText(2)
-        if (newProgress > 75 && currentText === 2) setCurrentText(3)
-        if (newProgress > 95 && currentText === 3) setCurrentText(4)
-        
+        if (newProgress > 25 && currentText === 0) setCurrentText(1);
+        if (newProgress > 50 && currentText === 1) setCurrentText(2);
+        if (newProgress > 75 && currentText === 2) setCurrentText(3);
+        if (newProgress > 95 && currentText === 3) setCurrentText(4);
+
         if (newProgress >= 100) {
-          clearInterval(interval)
+          clearInterval(interval);
           setTimeout(() => {
-            setLoading(false)
-          }, 800) // Delay before removing loader
-          return 100
+            setLoading(false);
+          }, 800); // Delay before removing loader
+          return 100;
         }
-        return newProgress
-      })
-    }, 100)
+        return newProgress;
+      });
+    }, 100);
 
     // Clean up interval
-    return () => clearInterval(interval)
-  }, [currentText])
+    return () => clearInterval(interval);
+  }, [currentText]);
 
   // After loader disappears, show content with delay
   useEffect(() => {
     if (!loading) {
       const timeout = setTimeout(() => {
-        setShowContent(true)
-      }, 600)
-      return () => clearTimeout(timeout)
+        setShowContent(true);
+      }, 600);
+      return () => clearTimeout(timeout);
     }
-  }, [loading])
-  
+  }, [loading]);
+
   // Animation for code path
   useEffect(() => {
-    if (!pathRef.current) return
-    
+    if (!pathRef.current) return;
+
     // Get the total length of the path
-    const length = pathRef.current.getTotalLength()
-    
+    const length = pathRef.current.getTotalLength();
+
     // Set up the initial animation
-    pathRef.current.style.strokeDasharray = `${length} ${length}`
-    pathRef.current.style.strokeDashoffset = `${length}`
-    
+    pathRef.current.style.strokeDasharray = `${length} ${length}`;
+    pathRef.current.style.strokeDashoffset = `${length}`;
+
     // Animate the path drawing
     const animatePath = () => {
       if (pathRef.current) {
-        const drawProgress = 1 - (progress / 100)
-        pathRef.current.style.strokeDashoffset = String(length * drawProgress)
+        const drawProgress = 1 - progress / 100;
+        pathRef.current.style.strokeDashoffset = String(length * drawProgress);
       }
-    }
-    
-    animatePath()
-  }, [progress])
+    };
+
+    animatePath();
+  }, [progress]);
 
   // Text items for the loading screen
-  const loadingTexts = [
-        'Just a moment...',
-        'Getting things ready for you...',
-        'Final touches happening now...',
-        'Almost there!...'
-      ];
+  const loadingTexts = ["Loading", "Preparing", "Almost done", "Hang tight"];
 
   return (
     <>
@@ -89,10 +83,10 @@ export default function LoadingPage() {
           <motion.div
             key="loader"
             initial={{ opacity: 1 }}
-            exit={{ 
+            exit={{
               opacity: 0,
               filter: "blur(10px)",
-              transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+              transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
             }}
             className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-background"
             ref={scope}
@@ -101,8 +95,8 @@ export default function LoadingPage() {
               {/* Central animated logo */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   scale: 1,
                   // rotateY: [0, 360],
                   transition: {
@@ -113,15 +107,15 @@ export default function LoadingPage() {
                     },
                     scale: {
                       duration: 1,
-                      ease: [0.34, 1.56, 0.64, 1]
-                    }
-                  }
+                      ease: [0.34, 1.56, 0.64, 1],
+                    },
+                  },
                 }}
                 className="mb-12 perspective"
               >
                 <div className="relative flex h-32 w-32 items-center justify-center">
                   {/* Outer rotating ring */}
-                  <motion.div 
+                  <motion.div
                     className="absolute inset-0 rounded-full border-4 border-primary/20"
                     animate={{
                       rotate: [0, 360],
@@ -132,14 +126,14 @@ export default function LoadingPage() {
                       repeat: Infinity,
                     }}
                   />
-                  
+
                   {/* Middle pulsing ring */}
                   <motion.div
                     className="absolute h-24 w-24 rounded-full border-2 border-dashed border-secondary/40"
-                    animate={{ 
+                    animate={{
                       scale: [1, 1.1, 1],
                       opacity: [0.4, 0.8, 0.4],
-                      rotate: [0, -180]
+                      rotate: [0, -180],
                     }}
                     transition={{
                       duration: 3,
@@ -147,14 +141,14 @@ export default function LoadingPage() {
                       repeat: Infinity,
                     }}
                   />
-                  
+
                   {/* Inner content - SVG code icon */}
                   <div className="relative h-16 w-16 overflow-hidden rounded-lg bg-background shadow-lg">
-                    <svg 
-                      viewBox="0 0 24 24" 
+                    <svg
+                      viewBox="0 0 24 24"
                       className="absolute inset-0 h-full w-full p-1 text-primary"
-                      fill="none" 
-                      stroke="currentColor" 
+                      fill="none"
+                      stroke="currentColor"
                       strokeWidth="1.5"
                     >
                       <motion.path
@@ -167,46 +161,46 @@ export default function LoadingPage() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                       />
                     </svg>
-                    
+
                     {/* Animated dots */}
-                    <motion.div 
+                    <motion.div
                       className="absolute bottom-1 right-1 h-1.5 w-1.5 rounded-full bg-secondary"
-                      animate={{ 
+                      animate={{
                         opacity: [0, 1, 0],
-                        scale: [0.8, 1.2, 0.8]
+                        scale: [0.8, 1.2, 0.8],
                       }}
                       transition={{
                         duration: 1.5,
                         repeat: Infinity,
-                        delay: 0.5
+                        delay: 0.5,
                       }}
                     />
-                    <motion.div 
+                    <motion.div
                       className="absolute bottom-1 left-1 h-1.5 w-1.5 rounded-full bg-secondary"
-                      animate={{ 
+                      animate={{
                         opacity: [0, 1, 0],
-                        scale: [0.8, 1.2, 0.8]
+                        scale: [0.8, 1.2, 0.8],
                       }}
                       transition={{
                         duration: 1.5,
                         repeat: Infinity,
-                        delay: 0
+                        delay: 0,
                       }}
                     />
-                    <motion.div 
+                    <motion.div
                       className="absolute top-1 left-1 h-1.5 w-1.5 rounded-full bg-secondary"
-                      animate={{ 
+                      animate={{
                         opacity: [0, 1, 0],
-                        scale: [0.8, 1.2, 0.8]
+                        scale: [0.8, 1.2, 0.8],
                       }}
                       transition={{
                         duration: 1.5,
                         repeat: Infinity,
-                        delay: 1
+                        delay: 1,
                       }}
                     />
                   </div>
-                  
+
                   {/* Orbiting particles */}
                   {[...Array(3)].map((_, i) => (
                     <motion.div
@@ -216,20 +210,21 @@ export default function LoadingPage() {
                         i % 2 === 0 ? "bg-primary" : "bg-secondary"
                       )}
                       animate={{
-                        x: Math.cos(i * (Math.PI * 2 / 3)) * 60,
-                        y: Math.sin(i * (Math.PI * 2 / 3)) * 60,
+                        x: Math.cos(i * ((Math.PI * 2) / 3)) * 60,
+                        y: Math.sin(i * ((Math.PI * 2) / 3)) * 60,
                       }}
                       transition={{
                         duration: 3,
                         ease: "linear",
                         repeat: Infinity,
                         delay: i * 0.5,
-                        repeatType: "loop"
+                        repeatType: "loop",
                       }}
                     />
                   ))}
                 </div>
               </motion.div>
+              {/* Previous lgog */}
 
               {/* Text and progress indicator */}
               <div className="relative text-center">
@@ -241,7 +236,7 @@ export default function LoadingPage() {
                     transition={{ ease: "easeOut" }}
                   />
                 </div>
-              
+
                 {/* Animated text */}
                 <div className="h-20">
                   <AnimatePresence mode="wait">
@@ -253,11 +248,8 @@ export default function LoadingPage() {
                       transition={{ duration: 0.3 }}
                       className="text-center"
                     >
-                      <p className="text-sm text-muted-foreground">
+                      <p className="flex justify-center text-sm text-muted-foreground">
                         {loadingTexts[currentText]}
-                      </p>
-                      <div className="mt-4 flex items-center justify-center space-x-1">
-                        <span className="text-foreground">{Math.round(progress)}%</span>
                         <div className="flex">
                           {[0, 1, 2].map((dot) => (
                             <motion.span
@@ -268,13 +260,35 @@ export default function LoadingPage() {
                                 duration: 1.5,
                                 repeat: Infinity,
                                 delay: dot * 0.2,
-                                ease: "easeInOut"
+                                ease: "easeInOut",
                               }}
                             >
                               .
                             </motion.span>
                           ))}
                         </div>
+                      </p>
+                      <div className="mt-4 flex items-center justify-center space-x-1">
+                        <span className="text-foreground">
+                          {/* {Math.round(progress)}% */}
+                        </span>
+                        {/* <div className="flex">
+                          {[0, 1, 2].map((dot) => (
+                            <motion.span
+                              key={dot}
+                              className="text-primary"
+                              animate={{ opacity: [0, 1, 0] }}
+                              transition={{
+                                duration: 1.5,
+                                repeat: Infinity,
+                                delay: dot * 0.2,
+                                ease: "easeInOut",
+                              }}
+                            >
+                              .
+                            </motion.span>
+                          ))}
+                        </div> */}
                       </div>
                     </motion.div>
                   </AnimatePresence>
@@ -284,16 +298,30 @@ export default function LoadingPage() {
               {/* Background animated elements */}
               <div className="absolute inset-0 overflow-hidden">
                 {/* Grid pattern */}
-                <svg className="absolute inset-0 h-full w-full opacity-[0.02]" 
-                     xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <svg
+                  className="absolute inset-0 h-full w-full opacity-[0.02]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="100%"
+                  height="100%"
+                >
                   <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" />
+                    <pattern
+                      id="grid"
+                      width="40"
+                      height="40"
+                      patternUnits="userSpaceOnUse"
+                    >
+                      <path
+                        d="M 40 0 L 0 0 0 40"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="0.5"
+                      />
                     </pattern>
                   </defs>
                   <rect width="100%" height="100%" fill="url(#grid)" />
                 </svg>
-                
+
                 {/* Floating particles */}
                 {/* <div className="pointer-events-none absolute inset-0">
                   {Array.from({ length: 30 }).map((_, i) => (
@@ -324,7 +352,7 @@ export default function LoadingPage() {
                     />
                   ))}
                 </div> */}
-                
+
                 {/* Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/30" />
               </div>
@@ -339,10 +367,10 @@ export default function LoadingPage() {
           <motion.div
             key="content"
             initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ 
-              opacity: 1, 
+            animate={{
+              opacity: 1,
               scale: 1,
-              transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+              transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
             }}
             className="min-h-screen"
           >
@@ -352,7 +380,7 @@ export default function LoadingPage() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
 // 'use client'
 
@@ -401,7 +429,7 @@ export default function LoadingPage() {
 //     'Final touches happening now',
 //     'Almost there!'
 //   ];
-  
+
 //   return (
 //     <>
 //       <AnimatePresence mode="wait">
@@ -443,7 +471,7 @@ export default function LoadingPage() {
 //                       repeat: Infinity,
 //                     }}
 //                   ></motion.div>
-                  
+
 //                   {/* Your initials or icon could go here */}
 //                   <div className="absolute inset-0 flex items-center justify-center">
 //                     <span className="text-xl font-bold tracking-wider text-primary">GKR</span>
