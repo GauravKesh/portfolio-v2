@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { ArrowLeft, Download } from 'lucide-react'
+import { Download } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Resume | Professional Portfolio',
@@ -18,25 +17,19 @@ const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_ID
 
 export default function ResumePage() {
   return (
-    <div className=" min-h-screen bg-white py-10 px-4 md:px-6">
+    <div className="min-h-screen bg-background py-10 px-4 md:px-6 transition-colors">
       <div className="mb-6 flex items-center justify-between max-w-5xl mx-auto">
-        {/* <Link href="/">
-          <Button variant="ghost" className="flex items-center gap-2">
-            <ArrowLeft size={16} />
-            Back to Portfolio
-          </Button>
-        </Link> */}
+        {/* Optional back button */}
       </div>
 
-      <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="max-w-5xl mx-auto bg-background rounded-lg shadow-lg overflow-hidden border border-border">
         <iframe
           src={PREVIEW_URL}
-          className="w-full h-[800px] bg-white  rounded"
+          className="w-full h-[1000px] bg-background"
           allow="autoplay"
         />
       </div>
 
-      {/* Static Download Button (bottom-right corner) */}
       <a
         href={DOWNLOAD_URL}
         target="_blank"
