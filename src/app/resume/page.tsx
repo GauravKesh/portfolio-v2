@@ -25,7 +25,7 @@ export default function ResumePage() {
       <div className="max-w-5xl mx-auto bg-background rounded-lg shadow-lg overflow-hidden border border-border">
         <iframe
           src={PREVIEW_URL}
-          className="w-full h-[800px] bg-background"
+          className="w-full h-[1000px] bg-background"
           allow="autoplay"
         />
       </div>
