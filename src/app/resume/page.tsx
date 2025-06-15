@@ -17,21 +17,15 @@ const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_ID
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 py-10 px-4 md:px-6 transition-colors">
+    <div className="min-h-screen bg-background py-10 px-4 md:px-6 transition-colors">
       <div className="mb-6 flex items-center justify-between max-w-5xl mx-auto">
-        {/* You can uncomment this for back nav */}
-        {/* <Link href="/">
-          <Button variant="ghost" className="flex items-center gap-2">
-            <ArrowLeft size={16} />
-            Back to Portfolio
-          </Button>
-        </Link> */}
+        {/* Optional back button */}
       </div>
 
-      <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+      <div className="max-w-5xl mx-auto bg-background rounded-lg shadow-lg overflow-hidden border border-border">
         <iframe
           src={PREVIEW_URL}
-          className="w-full h-[800px] bg-white dark:bg-gray-900"
+          className="w-full h-[800px] bg-background"
           allow="autoplay"
         />
       </div>
@@ -42,7 +36,7 @@ export default function ResumePage() {
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50"
       >
-        <Button className="shadow-lg rounded-full px-5 py-3 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors">
+        <Button className="shadow-lg rounded-full px-5 py-3">
           <Download className="mr-2 h-4 w-4" />
           Download Resume
         </Button>
