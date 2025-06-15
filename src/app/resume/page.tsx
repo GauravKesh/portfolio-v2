@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { ArrowLeft, Download } from 'lucide-react'
+import { Download } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Resume | Professional Portfolio',
@@ -18,8 +17,9 @@ const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_ID
 
 export default function ResumePage() {
   return (
-    <div className=" min-h-screen bg-white py-10 px-4 md:px-6">
+    <div className="min-h-screen bg-white dark:bg-gray-900 py-10 px-4 md:px-6 transition-colors">
       <div className="mb-6 flex items-center justify-between max-w-5xl mx-auto">
+        {/* You can uncomment this for back nav */}
         {/* <Link href="/">
           <Button variant="ghost" className="flex items-center gap-2">
             <ArrowLeft size={16} />
@@ -28,22 +28,21 @@ export default function ResumePage() {
         </Link> */}
       </div>
 
-      <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
         <iframe
           src={PREVIEW_URL}
-          className="w-full h-[800px] bg-white  rounded"
+          className="w-full h-[800px] bg-white dark:bg-gray-900"
           allow="autoplay"
         />
       </div>
 
-      {/* Static Download Button (bottom-right corner) */}
       <a
         href={DOWNLOAD_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50"
       >
-        <Button className="shadow-lg rounded-full px-5 py-3">
+        <Button className="shadow-lg rounded-full px-5 py-3 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors">
           <Download className="mr-2 h-4 w-4" />
           Download Resume
         </Button>
