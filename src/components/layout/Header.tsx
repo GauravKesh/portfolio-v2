@@ -1,21 +1,32 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { useTheme } from 'next-themes'
-import { Button } from '@/components/ui/button'
-import { Menu, X, Moon, Sun, Github, Linkedin, Twitter } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { cn } from '@/lib/utils'
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Moon, Sun, Github, Linkedin, Twitter } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Experience', href: '/experience' },
-  { name: 'Skills', href: '/skills' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Contact', href: '/contact' },
-]
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Experience", href: "/experience" },
+  { name: "Skills", href: "/skills" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
+];
+
+const social = [
+  { name: "Github", href: "https://github.com/gauravkesh", icon: Github },
+  {
+    name: "Linkedin",
+    href: "https://www.linkedin.com/in/gkrcoder",
+    icon: Linkedin,
+  },
+
+  { name: "Twitter", href: "https://x.com/gkrcoder_r", icon: Twitter },
+];
 
 const navVariants = {
   hidden: {},
@@ -25,29 +36,31 @@ const navVariants = {
       delayChildren: 0.2,
     },
   },
-}
+};
 
 const itemVariants = {
   hidden: { opacity: 0, y: -10 },
   visible: { opacity: 1, y: 0 },
-}
+};
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300',
-        scrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        "fixed top-0 w-full z-50 transition-all duration-300",
+        scrolled
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4">
@@ -81,11 +94,14 @@ export default function Header() {
             ))}
 
             {/* Theme toggle and Hire Me */}
-            <motion.div className="flex items-center space-x-2" variants={itemVariants}>
+            <motion.div
+              className="flex items-center space-x-2"
+              variants={itemVariants}
+            >
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 aria-label="Toggle theme"
                 className="transition-transform hover:scale-110"
               >
@@ -104,7 +120,7 @@ export default function Header() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="mr-2 transition-transform hover:scale-110"
             >
               <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -118,7 +134,11 @@ export default function Header() {
               aria-label="Toggle menu"
               className="transition-transform hover:scale-110"
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </Button>
           </div>
         </div>
@@ -129,7 +149,7 @@ export default function Header() {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-background/95 backdrop-blur-sm"
@@ -157,10 +177,17 @@ export default function Header() {
                   className="flex space-x-4 pt-4 border-t border-border"
                   variants={itemVariants}
                 >
-                  {[Github, Linkedin, Twitter].map((Icon, idx) => (
-                    <Button key={idx} size="icon" variant="ghost" className="hover:scale-110">
-                      <Icon className="h-5 w-5" />
-                    </Button>
+                  {social.map((item, id) => (
+                    <Link href={`${item.href}`} target="_blank" key={id}>
+                      <Button
+                        key={id}
+                        size="icon"
+                        variant="ghost"
+                        className="hover:scale-110"
+                      >
+                        <item.icon className="h-5 w-5" />
+                      </Button>
+                    </Link>
                   ))}
                 </motion.div>
 
@@ -175,5 +202,5 @@ export default function Header() {
         )}
       </AnimatePresence>
     </header>
-  )
+  );
 }
