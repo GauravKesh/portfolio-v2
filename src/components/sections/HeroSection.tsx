@@ -243,7 +243,7 @@ export default function HeroSection() {
             </svg>
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background shadow-xl">
               <Image
-                src="https://media.licdn.com/dms/image/v2/D4E03AQFwx9_pSbHGzw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1715803087891?e=1751500800&v=beta&t=FFBUpPcuiMDUpwmfOA4zW7oFM46OKj1LtIYrY1ycvSE"
+                src="https://media.licdn.com/dms/image/v2/D4E03AQFwx9_pSbHGzw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1715803087891?e=1756944000&v=beta&t=UZRlVl3NnmcFXdXmrHtfc3W7ctCvTcpI84elLXG2fN4"
                 alt="Developer Portrait"
                 fill
                 priority
