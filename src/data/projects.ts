@@ -12,6 +12,25 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+  id: "project-0",
+  title: "Devmate",
+  slug: "devmate",
+  description: "Devmate is an AI-driven collaboration platform that helps college students and developers find ideal teammates, join hackathons, and collaborate securely without sharing personal contact information.",
+  image: "/images/webp/devmate.webp",
+  demoUrl: "https://dev-mate-seven.vercel.app/",
+  githubUrl: "",
+  tags: ["Next.js", "React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Firebase", "AI/ML"],
+  features: [
+    "AI-based teammate suggestion and smart compatibility scoring",
+    "Hackathon and event discovery with team matching",
+    "Project creation, collaboration and real-time invitations",
+    "In-app communication (team, personal and community chats) without sharing personal contact info",
+    "Privacy-first design with full control over visibility",
+    "College-focused experience (academic schedule-aware) and personalised recommendations",
+    "Responsive UI built with Next.js and Tailwind CSS"
+  ]
+},
+  {
     id: "project-1",
     title: "E-Patrol",
     slug: "E-Patrol",
