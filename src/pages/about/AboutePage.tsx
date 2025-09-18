@@ -286,7 +286,7 @@ export default function AboutPage() {
                 {/* Main image */}
                 <div className="absolute inset-4 overflow-hidden rounded-2xl bg-muted/20 border border-border">
                   <Image
-                    src="https://media.licdn.com/dms/image/v2/D4E03AQFwx9_pSbHGzw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1715803087891?e=1756944000&v=beta&t=UZRlVl3NnmcFXdXmrHtfc3W7ctCvTcpI84elLXG2fN4"
+                    src="/images/mine/gkrcoder.webp"
                     alt="Gaurav Kesh Roushan - Full Stack Developer"
                     fill
                     className="object-cover"
