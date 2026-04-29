@@ -23,9 +23,12 @@ import {
   Server,
   Terminal,
   Trophy,
+  BriefcaseIcon,
 } from "lucide-react";
+import { experienceData } from "@/data/experience";
 import CallToAction from "@/components/sections/CallToAction";
 import EducationSection from "@/components/sections/EducationSection";
+import ClubsSection from "@/components/sections/ClubsSection";
 const classNames = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
 const skills = [
@@ -52,7 +55,7 @@ const skills = [
   },
 ];
 
-const RESUME_ID = '1ZOQtn5N1lKTV5nj-jLjhxwpXfX4u8S4i';
+const RESUME_ID = "1ZOQtn5N1lKTV5nj-jLjhxwpXfX4u8S4i";
 const PREVIEW_URL = `https://drive.google.com/file/d/${RESUME_ID}/preview`;
 const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_ID}`;
 
@@ -135,86 +138,56 @@ export default function AboutPage() {
         />
       </div>
 
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 px-4 overflow-hidden">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Hero Section - Storytelling */}
+      <section className="relative py-20 md:py-28 px-4 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <motion.div
               initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              className="order-2 lg:order-1"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-120px" }}
+              variants={staggerContainer}
+              className="order-2 lg:order-1 lg:col-span-7 lg:pl-6"
             >
               <motion.span
-                className="bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-6"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
+                className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
+                variants={item}
               >
-                About Me
+                <BriefcaseIcon className="h-4 w-4" /> About
               </motion.span>
 
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      delay: 0.1,
-                      duration: 0.8,
-                      ease: "easeOut",
-                    },
-                  },
-                }}
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-foreground"
+                variants={item}
               >
-                I'm <span className="text-primary">Gaurav</span>,<br />
-                {/* Full Stack Developer */}
+                I design and build meaningful
+                <span className="text-primary">
+                  {" "}
+                  products that solve real problems.
+                </span>
               </motion.h1>
 
               <motion.p
-                className="text-lg text-muted-foreground mb-8 max-w-lg"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      delay: 0.3,
-                      duration: 0.8,
-                      ease: "easeOut",
-                    },
-                  },
-                }}
+                className="text-lg text-muted-foreground mb-6 max-w-xl"
+                variants={item}
               >
-                I craft modern, high-performance web applications with a focus
-                on user experience and clean code. With 1.5+ years of experience
-                in web development, I specialize in React, TypeScript, and
-                modern JavaScript frameworks.
+                My work sits at the intersection of product, engineering, and
+                empathy. I start with the user, solve the hard problems, and
+                ship reliable systems that people enjoy using. Below is a
+                concise story of how I got here.
               </motion.p>
 
               <motion.div
-                className="flex flex-wrap gap-4"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      delay: 0.5,
-                      duration: 0.5,
-                    },
-                  },
-                }}
+                className="flex flex-wrap gap-3 items-center"
+                variants={item}
               >
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                  className="bg-gradient-to-r from-primary to-secondary"
                 >
                   <Link href="/contact" className="flex items-center gap-2">
-                    <Mail className="h-4 w-4" />
-                    Contact Me
+                    <Mail className="h-4 w-4" /> Let’s talk
                   </Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
@@ -223,218 +196,285 @@ export default function AboutPage() {
                     download
                     className="flex items-center gap-2"
                   >
-                    <Download className="h-4 w-4" />
-                    Download Resume
+                    <Download className="h-4 w-4" /> Resume
                   </a>
                 </Button>
-              </motion.div>
 
-              <motion.div
-                className="flex gap-4 mt-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7, duration: 0.5 }}
-              >
-                <a
-                  href="https://github.com/gauravkesh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Github className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://linkedin.com/gkrcoder"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://twitter.com/gkrcoder_"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Twitter className="h-5 w-5" />
-                </a>
+                <div className="ml-3 flex items-center gap-3">
+                  <a
+                    href="https://github.com/gauravkesh"
+                    className="text-muted-foreground hover:text-foreground"
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://linkedin.com/gkrcoder"
+                    className="text-muted-foreground hover:text-foreground"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                </div>
               </motion.div>
             </motion.div>
 
             <motion.div
-              className="relative order-1 lg:order-2"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              className="relative order-1 lg:order-2 lg:col-span-5"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 160, damping: 18 }}
             >
               <div className="relative w-full aspect-square max-w-md mx-auto">
-                {/* Border animation */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl border-2 border-primary/20"
-                  animate={{
-                    rotate: [0, 5, 0],
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 8,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                  }}
-                />
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/6 to-secondary/4 blur-[30px] -z-10" />
 
-                {/* Main image */}
-                <div className="absolute inset-4 overflow-hidden rounded-2xl bg-muted/20 border border-border">
-                  <Image
-                    src="/images/mine/gkrcoder.webp"
-                    alt="Gaurav Kesh Roushan - Full Stack Developer"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+                {/* Decorative icon collage instead of photo */}
+                <div className="relative rounded-2xl border border-border bg-muted/6 p-6 flex items-center justify-center">
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 border border-border shadow-sm">
+                      <Code className="h-7 w-7 text-primary" />
+                    </div>
+                    <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-secondary/10 to-secondary/5 border border-border shadow-sm">
+                      <Monitor className="h-7 w-7 text-secondary" />
+                    </div>
+                    <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-emerald-100 to-emerald-50 border border-border shadow-sm">
+                      <Database className="h-7 w-7 text-emerald-600" />
+                    </div>
+
+                    <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 border border-border shadow-sm">
+                      <Layout className="h-7 w-7 text-primary" />
+                    </div>
+                    <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-secondary/10 to-secondary/5 border border-border shadow-sm">
+                      <Server className="h-7 w-7 text-secondary" />
+                    </div>
+                    <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 border border-border shadow-sm">
+                      <Terminal className="h-7 w-7 text-primary" />
+                    </div>
+                  </div>
+
+                  {/* small center emblem */}
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                    <div className="w-24 h-24 rounded-full bg-background/90 border border-border shadow-lg flex items-center justify-center">
+                      <svg
+                        width="36"
+                        height="36"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="0.8"
+                          opacity="0.12"
+                        />
+                        <path
+                          d="M7 12l3 3 7-7"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Decorative elements */}
-                <motion.div
-                  custom={0}
-                  variants={decorativeItemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="absolute -top-6 -right-6 p-3 bg-background rounded-lg shadow-lg border border-border"
-                >
-                  <Code className="h-6 w-6 text-primary" />
-                </motion.div>
-
-                <motion.div
-                  custom={1}
-                  variants={decorativeItemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="absolute -bottom-6 -right-6 p-3 bg-background rounded-lg shadow-lg border border-border"
-                >
-                  <Monitor className="h-6 w-6 text-secondary" />
-                </motion.div>
-
-                <motion.div
-                  custom={2}
-                  variants={decorativeItemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="absolute -bottom-6 -left-6 p-3 bg-background rounded-lg shadow-lg border border-border"
-                >
-                  <Database className="h-6 w-6 text-primary" />
-                </motion.div>
+                {/* Decorative stat pills overlapping the collage */}
+                <div className="absolute -bottom-6 left-1/2 w-[92%] -translate-x-1/2 flex justify-between gap-3">
+                  <div className="rounded-xl bg-background/95 border border-border p-3 text-center shadow-lg w-1/3 backdrop-blur-sm">
+                    <div className="text-lg font-extrabold">1.5+</div>
+                    <div className="text-xs uppercase tracking-[0.12em] text-muted-foreground mt-1">
+                      Years
+                    </div>
+                  </div>
+                  <div className="rounded-xl bg-background/95 border border-border p-3 text-center shadow-lg w-1/3 backdrop-blur-sm">
+                    <div className="text-lg font-extrabold">20+</div>
+                    <div className="text-xs uppercase tracking-[0.12em] text-muted-foreground mt-1">
+                      Projects
+                    </div>
+                  </div>
+                  <div className="rounded-xl bg-background/95 border border-border p-3 text-center shadow-lg w-1/3 backdrop-blur-sm">
+                    <div className="text-lg font-extrabold">Mentor</div>
+                    <div className="text-xs uppercase tracking-[0.12em] text-muted-foreground mt-1">
+                      Community
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Bio Section */}
-      <section className="py-24 px-6" ref={bioRef}>
-        <div className="container mx-auto max-w-6xl">
-          {/* Section Header */}
+      {/* Bio / Journey Section */}
+      <section className="py-20 px-6" ref={bioRef}>
+        <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-120px" }}
             variants={fadeIn}
-            className="text-center mb-20"
+            className="mb-12 text-center"
           >
             <span className="inline-block mb-4 px-5 py-2 bg-secondary/10 text-secondary text-sm font-medium rounded-full">
               Biography
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-              Who I Am
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3">
+              My journey so far
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            <p className="max-w-2xl mx-auto text-muted-foreground">
+              A short narrative of the roles, learnings, and product-focused
+              outcomes that shaped my approach to engineering and design.
+            </p>
           </motion.div>
 
-          {/* About Me */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-120px" }}
+              variants={staggerContainer}
+              className="space-y-8"
+            >
+              <motion.div
+                variants={item}
+                className="prose max-w-none text-foreground/90"
+              >
+                <p>
+                  I’m a <strong>Full Stack Software Developer</strong> focused
+                  on building real-world solutions in{" "}
+                  <strong>health tech</strong>, <strong>education</strong>, and{" "}
+                  <strong>AI</strong>.
+                </p>
+
+                <p>
+                  My career began by solving product problems end-to-end — from
+                  prototyping to performance tuning in production. I focus on
+                  practical architectures, testable code, and shipping
+                  incremental value.
+                </p>
+
+                <p>
+                  Outside work, I mentor early-career engineers, run workshops,
+                  and contribute to community-driven open source programs that
+                  support learning and collaboration.
+                </p>
+              </motion.div>
+
+              <motion.div variants={item} className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 rounded-full bg-primary/10 p-2">
+                    <Lightbulb className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">
+                      Product-first engineering
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      I pair product sense with engineering rigor to build
+                      features that matter.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 rounded-full bg-secondary/10 p-2">
+                    <Layers className="h-5 w-5 text-secondary" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">Systems thinking</div>
+                    <div className="text-sm text-muted-foreground">
+                      I design maintainable systems that scale and are easy to
+                      reason about.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 rounded-full bg-emerald-100 p-2">
+                    <Trophy className="h-5 w-5 text-emerald-600" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">Community & mentorship</div>
+                    <div className="text-sm text-muted-foreground">
+                      I mentor and teach — sharing practical knowledge and
+                      helping others grow.
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-120px" }}
+              variants={staggerContainer}
+              className="space-y-6"
+            >
+              <div className="rounded-2xl border border-border/50 bg-background/50 p-6">
+                <h4 className="text-lg font-semibold mb-2">
+                  Experience highlights
+                </h4>
+                <ul className="text-sm text-muted-foreground space-y-3">
+                  <li>
+                    <strong>CliniChat.ai</strong> — SDE Intern: Contributed to
+                    healthcare AI systems and backend services.
+                  </li>
+                  <li>
+                    <strong>Eloquente AI</strong> — Full Stack: Built end-to-end
+                    features and integrations.
+                  </li>
+                  <li>
+                    <strong>Accura Tequipment</strong> — Backend: Improved
+                    deployment performance and observability.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-2xl border border-border/50 bg-background/50 p-6">
+                <h4 className="text-lg font-semibold mb-2">Core skills</h4>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((s, i) => (
+                    <Badge
+                      key={i}
+                      variant="secondary"
+                      className="rounded-full px-3 py-1.5 text-sm"
+                    >
+                      {s.title}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Polished Skills Grid */}
           <motion.div
+            className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeIn}
-            className="prose prose-base dark:prose-invert max-w-3xl mx-auto mb-20 space-y-6 leading-loose text-neutral-800 dark:text-neutral-200"
-          >
-            <p>
-              I'm a passionate and impact-driven{" "}
-              <strong>Full Stack Software Developer</strong> focused on building
-              real-world solutions in <strong>health tech</strong>,{" "}
-              <strong>education</strong>, <strong>AI</strong>, and{" "}
-              <strong>scalable SaaS platforms</strong>.
-            </p>
-
-            <p>
-              My technical stack includes <strong>React.js</strong>,{" "}
-              <strong>Next.js</strong>, <strong>Node.js</strong>,{" "}
-              <strong>Django</strong>, <strong>TypeScript</strong>,{" "}
-              <strong>PostgreSQL</strong>, and <strong>MongoDB</strong>. I
-              specialize in <strong>full-stack development</strong>,{" "}
-              <strong>API design</strong>, <strong>system architecture</strong>,
-              and <strong>DevOps practices</strong>.
-            </p>
-
-            <p>
-              With over <strong>300+ DSA problems solved</strong>, I’ve
-              sharpened my algorithmic thinking and built a strong foundation in{" "}
-              <strong>data structures</strong>,{" "}
-              <strong>operating systems</strong>, <strong>networking</strong>,{" "}
-              <strong>DBMS</strong>, and <strong>computer architecture</strong>.
-            </p>
-
-            <p>
-              I’m currently an <strong>SDE Intern at CliniChat.ai</strong> and{" "}
-              <strong>Eloquente AI</strong>, contributing to robust,
-              production-grade systems in healthcare-AI. I previously led
-              backend efforts at <strong>Accura Tequipment</strong>, improving
-              performance, optimizing deployments, and integrating APIs
-              effectively.
-            </p>
-
-            <p>
-              As the{" "}
-              <strong>
-                Technical Lead of GDG On Campus at Presidency University
-              </strong>
-              , I mentor developers, conduct workshops, and drive tech community
-              engagement. I was also a{" "}
-              <strong>Top 50 Mentor in GirlScript Summer of Code 2024</strong>{" "}
-              and a contributor to <strong>Script Winter of Code 2025</strong>.
-            </p>
-
-            <p>
-              I thrive in dynamic environments, bring both execution and
-              leadership skills, and aim to build{" "}
-              <strong>scalable, efficient, and impactful systems</strong> that
-              improve lives through technology.
-            </p>
-
-           
-          </motion.div>
-
-          {/* Skills */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-120px" }}
             variants={staggerContainer}
           >
             {skills.map((skill, idx) => (
               <motion.div
                 key={idx}
                 className={classNames(
-                  "p-6 rounded-2xl border border-border/50 hover:shadow-lg transition-all bg-background/50 backdrop-blur",
-                  skill.bgClass
+                  "p-6 rounded-2xl border border-border/50 transition-all bg-background/50 backdrop-blur",
+                  skill.bgClass,
                 )}
                 variants={item}
-                whileHover={{ y: -5, scale: 1.02 }}
+                whileHover={{ y: -6, scale: 1.02 }}
               >
                 <div className="flex items-center gap-4 mb-3">
-                  {skill.icon}
-                  <h4 className="text-xl font-semibold">{skill.title}</h4>
+                  <div className="p-2 rounded-lg bg-background/80 border border-border">
+                    {skill.icon}
+                  </div>
+                  <h4 className="text-lg font-semibold">{skill.title}</h4>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {skill.description}
@@ -447,6 +487,7 @@ export default function AboutPage() {
 
       {/* Academic Background */}
       <EducationSection />
+      <ClubsSection />
     </div>
   );
 }

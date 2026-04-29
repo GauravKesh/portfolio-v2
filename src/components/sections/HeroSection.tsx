@@ -106,14 +106,15 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col space-y-6 lg:order-1 order-2"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-120px" }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="flex flex-col space-y-6 order-2 lg:order-1 lg:col-span-7 lg:pr-8"
           >
             <div className="space-y-2">
               <motion.p
@@ -137,10 +138,10 @@ export default function HeroSection() {
                 </motion.span>
               </motion.p>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                 <AnimatedText
                   text="Gaurav Kesh Roushan"
-                  className="text-foreground"
+                  className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
                 />
               </h1>
 
@@ -165,8 +166,9 @@ export default function HeroSection() {
             </div>
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.4 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-120px" }}
+              transition={{ delay: 0.9 }}
               className="text-muted-foreground max-w-xl text-lg"
             >
               I'm a{" "}
@@ -193,31 +195,48 @@ export default function HeroSection() {
               </span>
               .
             </motion.p>
+            <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-4">
+              <motion.div whileHover={{ y: -3 }} className="flex-1 sm:flex-none">
+                <Button size="lg" asChild className="w-full sm:w-auto">
+                  <Link href="/about" className="flex items-center gap-2">
+                    <span>View More</span>
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </Button>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.6 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Button size="lg" asChild>
-                <Link href="/about">
-                  View More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/contact">Get In Touch</Link>
-              </Button>
-            </motion.div>
+              <motion.div whileHover={{ y: -3 }} className="flex-1 sm:flex-none">
+                <Button size="lg" variant="outline" asChild className="w-full sm:w-auto">
+                  <Link href="/contact" className="flex items-center gap-2">
+                    Get In Touch
+                  </Link>
+                </Button>
+              </motion.div>
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center gap-2">
+              <span className="text-xs text-muted-foreground uppercase tracking-wider">Tech</span>
+              <div className="flex items-center gap-2">
+                <div className="inline-flex items-center gap-2 rounded-full bg-muted/20 px-3 py-1 text-xs">
+                  <SiTypescript className="h-4 w-4 text-sky-500" /> TypeScript
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-muted/20 px-3 py-1 text-xs">
+                  <SiReact className="h-4 w-4 text-sky-400" /> React
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-muted/20 px-3 py-1 text-xs">
+                  <SiNextdotjs className="h-4 w-4 text-neutral-300" /> Next.js
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Profile Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative lg:order-2 order-1 mx-auto"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 140, damping: 20 }}
+            className="relative order-1 lg:order-2 lg:col-span-5 mx-auto"
           >
             <Spotlight
               className="-top-40 left-0 md:-top-20 md:left-60"
@@ -241,7 +260,7 @@ export default function HeroSection() {
               </defs>
               <circle cx="200" cy="200" r="200" fill="url(#bg-gradient)" />
             </svg>
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background shadow-xl">
+            <motion.div whileHover={{ scale: 1.035 }} transition={{ duration: 0.35 }} className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background shadow-xl">
               <Image
                 src="/images/mine/gkrcoder.webp"
                 alt="Developer Portrait"
@@ -250,7 +269,7 @@ export default function HeroSection() {
                 sizes="(max-width: 768px) 256px, 320px"
                 className="object-cover"
               />
-            </div>
+            </motion.div>
 
             {/* Optional animated color blur */}
             <motion.div
