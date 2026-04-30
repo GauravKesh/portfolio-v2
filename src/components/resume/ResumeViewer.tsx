@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Home, Maximize2, Sparkles, Download } from "lucide-react";
+import { FileText, Home, Maximize2, Download } from "lucide-react";
 
 type ResumeViewerProps = {
   previewUrl: string;
@@ -76,7 +76,7 @@ export default function ResumeViewer({ previewUrl, downloadUrl }: ResumeViewerPr
               </Button>
             </DialogTrigger>
 
-            <DialogContent className="left-0 top-0 z-[60] h-screen w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 bg-background p-0 px-2 shadow-none data-[state=open]:slide-in-from-top-0 data-[state=closed]:slide-out-to-top-0 sm:rounded-none">
+            <DialogContent className="resume-fullscreen-dialog left-0 top-0 z-[60] h-screen w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 bg-background p-0 px-2 shadow-none data-[state=open]:animate-none data-[state=closed]:animate-none sm:rounded-none">
               <DialogHeader className="flex-row items-center justify-between border-b border-border/60 px-5 py-4 sm:px-6">
                 <DialogTitle className="flex items-center gap-2 text-base font-semibold">
                   <Link
@@ -93,12 +93,12 @@ export default function ResumeViewer({ previewUrl, downloadUrl }: ResumeViewerPr
                 <DownloadButton downloadUrl={downloadUrl} />
               </DialogHeader>
 
-              <div className="h-[calc(100vh-4rem)] bg-muted/20 p-3 sm:p-4">
-                <div className="h-full overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm">
+              <div className="resume-fullscreen-body h-[calc(100vh-4rem)] bg-muted/20 p-3 sm:p-4">
+                <div className="resume-fullscreen-shell h-full overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm">
                   <iframe
                     src={previewUrl}
                     title="Resume preview"
-                    className="h-full w-full bg-background"
+                    className="resume-fullscreen-frame h-full w-full bg-background"
                     loading="lazy"
                     allow="autoplay"
                   />
