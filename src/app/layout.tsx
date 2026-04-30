@@ -11,7 +11,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-import Head from "next/head";
 import LoadingWrapper from "@/components/common/LoadingWrapper";
 import BackgroundUILayer from "@/components/ui/backgrounduilayer";
 
@@ -50,6 +49,9 @@ export const metadata: Metadata = {
       "Explore my full-stack developer profile, technical stack, project showcases, and career highlights.",
     siteName: "Gaurav Kesh Roushan",
   },
+  verification: {
+    google: "VZ6TvnDQ6gSfi_qYHyXMMPg3f5lh8K2x7mbmgotpNTc",
+  },
 };
 
 export default function RootLayout({
@@ -59,8 +61,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <meta name="google-site-verification" content="VZ6TvnDQ6gSfi_qYHyXMMPg3f5lh8K2x7mbmgotpNTc" />
+      <head>
         <link rel="icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
@@ -79,7 +80,7 @@ export default function RootLayout({
             }),
           }}
         />
-      </Head>
+      </head>
       
       <GoogleTagManager gtmId="GTM-MKJKLDVR" />
       <GoogleAnalytics gaId="G-G7S9DFLMPY" />
