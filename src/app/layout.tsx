@@ -79,6 +79,7 @@ export default function RootLayout({
           }}
         />
       </Head>
+      <meta name="google-site-verification" content="VZ6TvnDQ6gSfi_qYHyXMMPg3f5lh8K2x7mbmgotpNTc" />
       <GoogleTagManager gtmId="GTM-MKJKLDVR" />
       <GoogleAnalytics gaId="G-G7S9DFLMPY" />
       <body
