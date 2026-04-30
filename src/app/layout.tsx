@@ -13,6 +13,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 
 import Head from "next/head";
 import LoadingWrapper from "@/components/common/LoadingWrapper";
+import BackgroundUILayer from "@/components/ui/backgrounduilayer";
 
 export const metadata: Metadata = {
   title: "Gaurav Kesh Roushan",
@@ -92,6 +93,7 @@ export default function RootLayout({
 
             <main className="flex-1">
               <RippleEffect />
+              
               {children}
             </main>
 

@@ -32,7 +32,7 @@ export const skillsData: SkillCategory[] = [
       { name: 'Django', icon: 'https://cdn.simpleicons.org/django' },
       { name: 'Flask', icon: 'https://cdn.simpleicons.org/flask' },
       { name: 'REST API', icon: 'https://cdn.simpleicons.org/openapiinitiative' },
-      // { name: 'GraphQL', icon: 'https://cdn.simpleicons.org/graphql' },
+      { name: 'GraphQL', icon: 'https://cdn.simpleicons.org/graphql' },
     ],
   },
   {
@@ -51,6 +51,7 @@ export const skillsData: SkillCategory[] = [
       { name: 'C', icon: 'https://cdn.simpleicons.org/c' },
       { name: 'JavaScript', icon: 'https://cdn.simpleicons.org/javascript' },
       { name: 'TypeScript', icon: 'https://cdn.simpleicons.org/typescript' },
+      { name: 'Golang', icon: 'https://cdn.simpleicons.org/go' },
       { name: 'Java', icon: 'https://cdn-icons-png.flaticon.com/512/226/226777.png' },
       { name: 'Python', icon: 'https://cdn.simpleicons.org/python' },
       { name: 'R', icon: 'https://cdn.simpleicons.org/R' },

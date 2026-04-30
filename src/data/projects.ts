@@ -8,7 +8,7 @@ export interface Project {
   githubUrl?: string;
   doc_url?: string;
 
-  category: "systems" | "backend" | "frontend" | "fullstack" | "ai" | "infra";
+  category: "systems" | "backend" | "frontend" | "fullstack" | "ai" | "infra" | any;
   doc_type?: "readme";
 
   tags: string[];
@@ -23,32 +23,84 @@ export const projectsData: Project[] = [
 
   {
     id: "project-100",
-    title: "API Gateway with Rate Limiting", 
-    slug: "api-gateway-rate-limiting",
+    title: "Rate Limiter (Go + Redis)",
+    slug: "redis-rate-limiter-go",
+
 
     description:
-      "High-performance API gateway with centralized routing and distributed rate limiting.",
-    image: "/images/webp/system.webp",
-    githubUrl: "https://github.com/your-repo",
-    doc_url: "https://github.com/your-repo",
+      "A scalable rate limiting service using Redis to control request throughput in distributed systems.",
+
+    image: "/images/webp/rate-limiter.webp",
+    githubUrl: "https://github.com/GauravKesh/rate-limiter",
+    doc_url: "https://github.com/GauravKesh/rate-limiter",
+
     category: "infra",
     doc_type: "readme",
-    tags: ["Go", "Redis", "Distributed Systems"],
+
+    tags: ["Go", "Redis", "Backend"],
+
+    features: [
+      "Request rate limiting using Redis",
+      "Middleware-based integration",
+      "Configurable limits and refill rates",
+      "Designed for distributed environments",
+    ],
+  },
+  {
+    id: "project-102",
+    title: "Multithreaded TCP Server",
+    slug: "multithreaded-tcp-server",
+
+    description:
+      "Concurrent TCP server with thread pool and efficient socket handling.",
+
+    image: "/images/webp/tcp.webp",
+    githubUrl: "https://github.com/GauravKesh/cpp-multithreaded-tcp-server",
+    doc_url: "https://github.com/GauravKesh/cpp-multithreaded-tcp-server",
+
+    category: "systems",
+    doc_type: "readme",
+    tags: ["C++", "Sockets", "Concurrency"],
+    features: [
+      "Thread pool architecture",
+      "Efficient I/O handling",
+      "Low latency communication",
+    ],
+  },
+
+  {
+    id: "project-101",
+    title: "API Gateway",
+    slug: "api-gateway",
+
+    description:
+      "A centralized API gateway for handling routing, authentication, and request management in microservices.",
+
+    image: "/images/webp/api_gateway_image.webp",
+    githubUrl: "https://github.com/gauravkesh/api_gateway",
+    doc_url: "https://github.com/gauravkesh/api_gateway",
+
+    category: "infra",
+    doc_type: "readme",
+
+    tags: ["Node.js", "Express", "Microservices"],
+
     features: [
       "Centralized request routing",
-      "Distributed rate limiting using Redis",
-      "High concurrency design",
+      "Authentication and middleware support",
+      "Basic rate limiting",
+      "Proxying requests to backend services/other routes",
     ],
   },
 
   {
     id: "project-101",
     title: "Custom Document Database (MongoDB-like)",
-         slug: "custom-document-database",
+    slug: "custom-document-database",
 
     description:
       "Lightweight document-oriented database with in-memory storage and persistence.",
-    image: "/images/webp/system.webp",
+    image: "/images/webp/custom-db.webp",
     githubUrl: "https://github.com/GauravKesh/database",
     doc_url: "https://github.com/GauravKesh/database",
     category: "systems",
@@ -62,31 +114,9 @@ export const projectsData: Project[] = [
   },
 
   {
-    id: "project-102",
-    title: "Multithreaded TCP Server",
-      slug: "multithreaded-tcp-server",
-
-    description:
-      "Concurrent TCP server with thread pool and efficient socket handling.",
-   
-    image: "/images/webp/system.webp",
-    githubUrl: "https://github.com/GauravKesh/cpp-multithreaded-tcp-server",
-    doc_url: "https://github.com/GauravKesh/cpp-multithreaded-tcp-server",
-    
-    category: "systems",
-    doc_type: "readme",
-    tags: ["C++", "Sockets", "Concurrency"],
-    features: [
-      "Thread pool architecture",
-      "Efficient I/O handling",
-      "Low latency communication",
-    ],
-  },
-
-  {
     id: "project-103",
     title: "IoT Real-Time Security Monitoring",
-      slug: "iot-realtime-security-monitoring",
+    slug: "iot-realtime-security-monitoring",
 
     description:
       "Edge-based system for real-time monitoring and anomaly detection.",

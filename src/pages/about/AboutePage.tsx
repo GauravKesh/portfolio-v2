@@ -337,73 +337,53 @@ export default function AboutPage() {
               whileInView="visible"
               viewport={{ once: true, margin: "-120px" }}
               variants={staggerContainer}
-              className="space-y-8"
+              className="space-y-6"
             >
-              <motion.div
-                variants={item}
-                className="prose max-w-none text-foreground/90"
-              >
-                <p>
-                  I’m a <strong>Full Stack Software Developer</strong> focused
-                  on building real-world solutions in{" "}
-                  <strong>health tech</strong>, <strong>education</strong>, and{" "}
-                  <strong>AI</strong>.
-                </p>
+              <motion.div variants={item} className="space-y-4">
+                <div className="p-4 rounded-xl border border-border/40 bg-primary/5">
+                  <p className="text-sm leading-relaxed">
+                    <strong>Full Stack Developer</strong> building real-world
+                    solutions in <strong>HealthTech</strong>,{" "}
+                    <strong>EdTech</strong>, and <strong>AI</strong>.
+                  </p>
+                </div>
 
-                <p>
-                  My career began by solving product problems end-to-end — from
-                  prototyping to performance tuning in production. I focus on
-                  practical architectures, testable code, and shipping
-                  incremental value.
-                </p>
+                <div className="p-4 rounded-xl border border-border/40 bg-secondary/5">
+                  <p className="text-sm leading-relaxed">
+                    End-to-end product development  from{" "}
+                    <strong>prototyping</strong> to{" "}
+                    <strong>scalable production systems</strong>.
+                  </p>
+                </div>
 
-                <p>
-                  Outside work, I mentor early-career engineers, run workshops,
-                  and contribute to community-driven open source programs that
-                  support learning and collaboration.
-                </p>
+                <div className="p-4 rounded-xl border border-border/40 bg-emerald-500/5">
+                  <p className="text-sm leading-relaxed">
+                    <strong>Mentor & contributor</strong> — helping peers
+                    grow through workshops and open source.
+                  </p>
+                </div>
               </motion.div>
 
-              <motion.div variants={item} className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 rounded-full bg-primary/10 p-2">
-                    <Lightbulb className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">
-                      Product-first engineering
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      I pair product sense with engineering rigor to build
-                      features that matter.
-                    </div>
-                  </div>
+              <motion.div variants={item} className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <Lightbulb className="h-4 w-4 text-primary mt-1" />
+                  <p className="text-sm">
+                    <strong>Product-first:</strong> Build what matters
+                  </p>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 rounded-full bg-secondary/10 p-2">
-                    <Layers className="h-5 w-5 text-secondary" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">Systems thinking</div>
-                    <div className="text-sm text-muted-foreground">
-                      I design maintainable systems that scale and are easy to
-                      reason about.
-                    </div>
-                  </div>
+                <div className="flex items-start gap-3">
+                  <Layers className="h-4 w-4 text-secondary mt-1" />
+                  <p className="text-sm">
+                    <strong>Systems:</strong> Scalable & maintainable
+                  </p>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 rounded-full bg-emerald-100 p-2">
-                    <Trophy className="h-5 w-5 text-emerald-600" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">Community & mentorship</div>
-                    <div className="text-sm text-muted-foreground">
-                      I mentor and teach — sharing practical knowledge and
-                      helping others grow.
-                    </div>
-                  </div>
+                <div className="flex items-start gap-3">
+                  <Trophy className="h-4 w-4 text-emerald-600 mt-1" />
+                  <p className="text-sm">
+                    <strong>Community:</strong> Mentor & teach
+                  </p>
                 </div>
               </motion.div>
             </motion.div>

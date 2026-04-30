@@ -2,123 +2,226 @@
 
 import { useReadme } from "@/hooks/useReadme";
 import { Loader2, AlertCircle, FileText } from "lucide-react";
-import ReactMarkdown, { type Components } from "react-markdown";
-import remarkGfm from "remark-gfm";
-import remarkBreaks from "remark-breaks";
-import rehypeHighlight from "rehype-highlight";
-import rehypeRaw from "rehype-raw";
+import { useEffect, useRef } from "react";
 
 interface ReadmeViewerProps {
   docUrl: string;
 }
 
-function getReadmeBaseUrl(docUrl: string): string {
-  if (docUrl.startsWith("https://raw.githubusercontent.com")) {
-    return docUrl;
+// GitHub's markdown CSS injected once globally
+const GITHUB_MARKDOWN_CSS = `
+  .readme-github-body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    color: #e6edf3;
   }
 
-  const blobMatch = docUrl.match(
-    /^https:\/\/github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.+)$/i
-  );
-  if (blobMatch) {
-    const [, user, repo, branch, path] = blobMatch;
-    return `https://raw.githubusercontent.com/${user}/${repo}/${branch}/${path}`;
+  .readme-github-body::before { display: table; content: "" }
+  .readme-github-body::after { display: table; clear: both; content: "" }
+
+  .readme-github-body > *:first-child { margin-top: 0 !important }
+  .readme-github-body > *:last-child { margin-bottom: 0 !important }
+
+  .readme-github-body a { color: #4493f8; text-decoration: none }
+  .readme-github-body a:hover { text-decoration: underline }
+
+  .readme-github-body h1,
+  .readme-github-body h2,
+  .readme-github-body h3,
+  .readme-github-body h4,
+  .readme-github-body h5,
+  .readme-github-body h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #e6edf3;
+  }
+  .readme-github-body h1 { font-size: 2em; padding-bottom: 0.3em; border-bottom: 1px solid #30363d }
+  .readme-github-body h2 { font-size: 1.5em; padding-bottom: 0.3em; border-bottom: 1px solid #30363d }
+  .readme-github-body h3 { font-size: 1.25em }
+  .readme-github-body h4 { font-size: 1em }
+  .readme-github-body h5 { font-size: 0.875em }
+  .readme-github-body h6 { font-size: 0.85em; color: #848d97 }
+
+  .readme-github-body p { margin-top: 0; margin-bottom: 16px }
+
+  .readme-github-body blockquote {
+    margin: 0 0 16px;
+    padding: 0 1em;
+    color: #848d97;
+    border-left: 0.25em solid #3d444d;
   }
 
-  const readmeMatch = docUrl.match(
-    /^https:\/\/github\.com\/([^/]+)\/([^/]+)\/(README(?:\.md)?|readme(?:\.md)?)\/?$/i
-  );
-  if (readmeMatch) {
-    const [, user, repo, file] = readmeMatch;
-    return `https://raw.githubusercontent.com/${user}/${repo}/main/${file}`;
+  .readme-github-body ul,
+  .readme-github-body ol {
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-left: 2em;
   }
 
-  const repoMatch = docUrl.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)\/?$/i);
-  if (repoMatch) {
-    const [, user, repo] = repoMatch;
-    return `https://raw.githubusercontent.com/${user}/${repo}/main/README.md`;
+  .readme-github-body li { margin-top: 0.25em }
+  .readme-github-body li + li { margin-top: 0.25em }
+  .readme-github-body li > p { margin-top: 16px }
+
+  .readme-github-body dl { padding: 0 }
+  .readme-github-body dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: 600 }
+  .readme-github-body dl dd { padding: 0 16px; margin-bottom: 16px }
+
+  .readme-github-body table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  .readme-github-body table th {
+    font-weight: 600;
+    padding: 6px 13px;
+    border: 1px solid #3d444d;
+    background-color: #161b22;
+  }
+  .readme-github-body table td {
+    padding: 6px 13px;
+    border: 1px solid #3d444d;
+  }
+  .readme-github-body table tr { background-color: #0d1117; border-top: 1px solid #3d444d }
+  .readme-github-body table tr:nth-child(2n) { background-color: #161b22 }
+
+  .readme-github-body img {
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 6px;
   }
 
-  return docUrl;
+  .readme-github-body code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    white-space: break-spaces;
+    background-color: #3d444d;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+    color: #e6edf3;
+  }
+
+  .readme-github-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    color: #e6edf3;
+    background-color: #161b22;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    margin-top: 0;
+    margin-bottom: 16px;
+    word-wrap: normal;
+  }
+
+  .readme-github-body pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+    font-size: 100%;
+    white-space: pre;
+    color: inherit;
+  }
+
+  .readme-github-body hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #3d444d;
+    border: 0;
+    border-radius: 2px;
+  }
+
+  .readme-github-body details { display: block }
+  .readme-github-body summary { display: list-item; cursor: pointer }
+
+  .readme-github-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #e6edf3;
+    vertical-align: middle;
+    background-color: #161b22;
+    border: solid 1px #3d444d;
+    border-bottom-color: #3d444d;
+    border-radius: 6px;
+    box-shadow: inset 0 -1px 0 #3d444d;
+  }
+
+  /* Task list checkboxes */
+  .readme-github-body input[type="checkbox"] {
+    margin: 0 0.2em 0.25em -1.4em;
+    vertical-align: middle;
+  }
+
+  /* Anchor links */
+  .readme-github-body .anchor { float: left; padding-right: 4px; margin-left: -20px; line-height: 1 }
+  .readme-github-body .anchor:focus { outline: none }
+`;
+
+function injectGithubStyles() {
+  const id = "github-readme-styles";
+  if (!document.getElementById(id)) {
+    const style = document.createElement("style");
+    style.id = id;
+    style.textContent = GITHUB_MARKDOWN_CSS;
+    document.head.appendChild(style);
+  }
 }
-
-function rewriteGithubAssetUrl(url: string, docUrl: string): string {
-  if (!url || url.startsWith("http") || url.startsWith("#") || url.startsWith("mailto:")) {
-    return url;
-  }
-
-  try {
-    return new URL(url, getReadmeBaseUrl(docUrl)).toString();
-  } catch {
-    return url;
-  }
-}
-
-const createMarkdownComponents = (docUrl: string): Components => ({
-  a: ({ href, children, ...props }) => (
-    <a
-      {...props}
-      href={href ? rewriteGithubAssetUrl(href, docUrl) : href}
-      target={href?.startsWith("#") ? undefined : "_blank"}
-      rel={href?.startsWith("#") ? undefined : "noreferrer noopener"}
-    >
-      {children}
-    </a>
-  ),
-  img: ({ src, alt }) => {
-    const imageSrc = src ? rewriteGithubAssetUrl(src, docUrl) : src;
-    if (!imageSrc) return null;
-
-    return (
-      <div className="my-4 overflow-hidden rounded-xl border border-border/40 shadow-sm">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={imageSrc}
-          alt={alt ?? "README image"}
-          className="h-auto w-full"
-        />
-      </div>
-    );
-  },
-  table: ({ children, ...props }) => (
-    <div className="my-6 w-full overflow-x-auto rounded-xl border border-border/60">
-      <table {...props} className="w-full border-collapse">
-        {children}
-      </table>
-    </div>
-  ),
-  th: ({ children, ...props }) => (
-    <th
-      {...props}
-      className="border-b border-border/60 bg-muted/60 px-4 py-2 text-left text-sm font-semibold text-foreground"
-    >
-      {children}
-    </th>
-  ),
-  td: ({ children, ...props }) => (
-    <td {...props} className="border-b border-border/40 px-4 py-2 text-sm">
-      {children}
-    </td>
-  ),
-  blockquote: ({ children, ...props }) => (
-    <blockquote
-      {...props}
-      className="border-l-4 border-primary/50 bg-muted/30 px-4 py-2 italic text-muted-foreground"
-    >
-      {children}
-    </blockquote>
-  ),
-  code: ({ children, className, ...props }) => (
-    <code {...props} className={className}>
-      {children}
-    </code>
-  ),
-});
 
 export default function ReadmeViewer({ docUrl }: ReadmeViewerProps) {
-  const { content, status, error } = useReadme(docUrl);
-  const markdownComponents = createMarkdownComponents(docUrl);
-  const normalizedContent = content?.replace(/\r\n/g, "\n").trim() ?? null;
+  const { html, status, error } = useReadme(docUrl);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    injectGithubStyles();
+  }, []);
+
+  // Fix relative image URLs in rendered HTML
+  useEffect(() => {
+    if (!html || !containerRef.current) return;
+
+    const repoBase = (() => {
+      const m = docUrl.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)/i);
+      if (!m) return null;
+      return `https://raw.githubusercontent.com/${m[1]}/${m[2]}/main`;
+    })();
+
+    if (!repoBase) return;
+
+    containerRef.current.querySelectorAll("img").forEach((img) => {
+      const src = img.getAttribute("src");
+      if (src && !src.startsWith("http") && !src.startsWith("data:")) {
+        img.setAttribute("src", `${repoBase}/${src}`);
+      }
+    });
+
+    // Open all links in new tab
+    containerRef.current.querySelectorAll("a").forEach((a) => {
+      const href = a.getAttribute("href");
+      if (href && !href.startsWith("#")) {
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noreferrer noopener");
+      }
+    });
+  }, [html, docUrl]);
 
   if (status === "loading") {
     return (
@@ -126,7 +229,7 @@ export default function ReadmeViewer({ docUrl }: ReadmeViewerProps) {
         <Loader2 className="h-6 w-6 animate-spin text-primary" />
         <p className="text-sm font-medium">Fetching documentation…</p>
         <p className="max-w-sm text-center text-xs leading-5 text-muted-foreground">
-          Pulling the latest README content so the tab stays in sync with the repository.
+          Rendering README via GitHub…
         </p>
       </div>
     );
@@ -142,44 +245,27 @@ export default function ReadmeViewer({ docUrl }: ReadmeViewerProps) {
     );
   }
 
-  if (!normalizedContent) return null;
+  if (!html) return null;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm">
-      <div className="flex items-center justify-between border-b border-border/60 bg-muted/35 px-4 py-3 md:px-5">
-        <div className="flex items-center gap-2">
-          <span className="rounded-full bg-primary/10 p-2 text-primary">
-            <FileText className="h-4 w-4" />
-          </span>
-          <div>
-            <p className="text-sm font-semibold text-foreground">README Preview</p>
-            <p className="text-xs text-muted-foreground">Rendered markdown documentation</p>
-          </div>
+    <div className="overflow-hidden rounded-2xl border border-border/60 bg-[#0d1117] shadow-sm">
+      {/* Header */}
+      <div className="flex items-center gap-2 border-b border-[#30363d] bg-[#161b22] px-4 py-3 md:px-5">
+        <span className="rounded-full bg-primary/10 p-2 text-primary">
+          <FileText className="h-4 w-4" />
+        </span>
+        <div>
+          <p className="text-sm font-semibold text-[#e6edf3]">README</p>
+          <p className="text-xs text-[#848d97]">Rendered by GitHub</p>
         </div>
       </div>
 
-      <div className="readme-viewer prose prose-neutral dark:prose-invert max-w-none px-4 py-5 md:px-6 md:py-6
-        prose-headings:font-bold prose-headings:tracking-tight
-        prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg
-        prose-h1:border-b prose-h1:border-border prose-h1:pb-3 prose-h1:mb-6
-        prose-h2:border-b prose-h2:border-border/50 prose-h2:pb-2 prose-h2:mb-4
-        prose-code:text-primary prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5
-        prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
-        prose-pre:bg-[#0d1117] prose-pre:border prose-pre:border-border/30 prose-pre:rounded-xl
-        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-        prose-blockquote:border-l-primary/50 prose-blockquote:text-muted-foreground
-        prose-img:rounded-lg prose-img:border prose-img:border-border/30
-        prose-table:text-sm prose-th:bg-muted/50
-        prose-li:marker:text-primary
-      ">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm, remarkBreaks]}
-          rehypePlugins={[rehypeRaw, rehypeHighlight]}
-          components={markdownComponents}
-        >
-          {normalizedContent}
-        </ReactMarkdown>
-      </div>
+      {/* Rendered content */}
+      <div
+        ref={containerRef}
+        className="readme-github-body px-6 py-6 md:px-8 md:py-8"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   );
 }
