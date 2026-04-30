@@ -184,13 +184,13 @@ export default function AboutPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-primary to-secondary"
+                  className="group rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-6 shadow-md shadow-primary/20 hover:opacity-9"
                 >
                   <Link href="/contact" className="flex items-center gap-2">
                     <Mail className="h-4 w-4" /> Let’s talk
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
+                <Button variant="outline" size="lg" className="group rounded-full  px-6 py-6 shadow-md shadow-primary/20 hover:opacity-9" asChild>
                   <a
                     href={DOWNLOAD_URL}
                     download

@@ -5,7 +5,7 @@ import { motion} from 'framer-motion'
 import { Button } from '@/components/ui/button'
 
 import { 
-  ArrowRight, 
+  ArrowUpRight, 
 } from 'lucide-react'
 
 export default function CallToAction() {
@@ -41,11 +41,11 @@ export default function CallToAction() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+              className="group rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-6 shadow-md shadow-primary/20 hover:opacity-9"
             >
               <Link href="/contact" className="flex items-center gap-2">
                 Get in Touch
-                <ArrowRight className="h-4 w-4" />
+                <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
             </Button>
           </motion.div>

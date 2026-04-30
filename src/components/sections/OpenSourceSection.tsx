@@ -117,7 +117,7 @@ export default function OpenSourceSection({ limit }: Props) {
 
                 {item.links?.repo && (
                   <a href={item.links.repo} target="_blank" rel="noopener noreferrer">
-                    <Button size="sm" className="bg-foreground text-background">Repo</Button>
+                    <Button size="sm" className="group rounded-full bg-gradient-to-r from-primary to-secondary shadow-md shadow-primary/20 hover:opacity-9">Repo</Button>
                   </a>
                 )}
               </div>

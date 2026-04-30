@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown, Github, Linkedin, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { SiTypescript, SiReact, SiNextdotjs, SiNodedotjs, SiPostgresql } from "react-icons/si";
@@ -135,16 +135,16 @@ export default function HeroSection() {
             {/* CTAs */}
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
               <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
-                <Button size="lg" asChild>
+                <Button size="lg" className="group rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-6 shadow-md shadow-primary/20 hover:opacity-9" asChild>
                   <Link href="/about" className="flex items-center gap-2">
                     View More
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </Link>
                 </Button>
               </motion.div>
 
               <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" className="group rounded-full  px-6 py-6 shadow-md shadow-primary/20 hover:opacity-9" variant="outline" asChild>
                   <Link href="/contact">Get In Touch</Link>
                 </Button>
               </motion.div>

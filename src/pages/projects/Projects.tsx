@@ -7,7 +7,7 @@ import { projectsData, Project } from "@/data/projects";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, X, ArrowRight } from "lucide-react";
+import { Github, ExternalLink, X, ArrowUpRight,ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -167,7 +167,7 @@ export default function Projects() {
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-3 px-2 md:px-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                <ArrowRight className="h-5 w-5 rotate-45" />
+                 <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">Filter projects</p>
@@ -263,16 +263,16 @@ export default function Projects() {
                         <Link href={`/projects/${project.slug}`} className="flex-1">
                           <Button 
                             variant="secondary"
-                            className="w-full border-0 bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
+                           className="group rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-6 shadow-md shadow-primary/20 hover:opacity-9"
                           >
                             View Details
-                            <ArrowRight className="ml-2 h-4 w-4" />
+                             <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                           </Button>
                         </Link>
                         <Button
                           type="button"
                           variant="secondary"
-                          className="border-0 bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
+                          className="border-0 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 group rounded-full  px-6 py-6 shadow-md shadow-primary/20 hover:opacity-9"
                           onClick={() => setSelectedProject(project)}
                         >
                           Quick View

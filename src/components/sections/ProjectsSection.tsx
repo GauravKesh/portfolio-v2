@@ -7,7 +7,7 @@ import { projectsData, Project } from "@/data/projects";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, X, ArrowRight } from "lucide-react";
+import { Github, ExternalLink, X, ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -174,16 +174,16 @@ export default function ProjectsSection() {
                       <Link href={`/projects/${project.slug ?? project.id}`} className="flex-1">
                         <Button
                           variant="secondary"
-                          className="w-full border-0 bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
+                          className=" group rounded-full bg-gradient-to-r from-primary to-secondary shadow-md shadow-primary/20 hover:opacity-9"
                         >
                           View Details
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                           <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                         </Button>
                       </Link>
                       <Button
                         type="button"
                         variant="secondary"
-                        className="border-0 bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
+                        className="border-0 rounded-full bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
                         onClick={() => setSelectedProject(project)}
                       >
                         Quick View
@@ -295,7 +295,7 @@ export default function ProjectsSection() {
           <Link href="/projects">
             <Button
               size="lg"
-              className="group bg-gradient-to-r from-primary to-secondary px-8 hover:opacity-90"
+              className="group rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-6 shadow-md shadow-primary/20 hover:opacity-9"
             >
               View All Projects
               <motion.span
@@ -303,7 +303,7 @@ export default function ProjectsSection() {
                 animate={{ x: [0, 5, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
               >
-                <ArrowRight className="h-5 w-5" />
+               <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </motion.span>
             </Button>
           </Link>
