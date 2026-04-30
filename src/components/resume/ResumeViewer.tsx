@@ -17,20 +17,21 @@ export default function ResumeViewer({ previewUrl }: ResumeViewerProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const currentPath = pathname ?? "/resume";
 
   useEffect(() => {
-    setIsFullScreen(searchParams.get("view") === "full");
+    setIsFullScreen(searchParams?.get("view") === "full");
   }, [searchParams]);
 
   const handleOpenChange = (nextOpen: boolean) => {
     setIsFullScreen(nextOpen);
 
     if (nextOpen) {
-      router.replace(`${pathname}?view=full`, { scroll: false });
+      router.replace(`${currentPath}?view=full`, { scroll: false });
       return;
     }
 
-    router.replace(pathname, { scroll: false });
+    router.replace(currentPath, { scroll: false });
   };
 
   return (
