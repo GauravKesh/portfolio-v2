@@ -7,13 +7,43 @@
 
 
 module.exports = {
-    siteUrl: 'https://gkrcoder.vercel.app',  // Replace with your website URL
+    siteUrl: 'https://gkrcoder.vercel.app',
     generateRobotsTxt: true,
-    generateIndexSitemap: false, // ✅ Disable index, generate single sitemap.xml
-    sitemapSize: 7000, // optional: large enough to fit all URLs
+    generateIndexSitemap: false,
+    sitemapSize: 7000,
     changefreq: 'daily',
     priority: 0.8,
     autoLastmod: true,
+    exclude: [
+        '/404',
+        '/500',
+        '/**/notFound*',
+        '/**/api/*',
+        '/**/admin*',
+        '/_*',
+        '/manifest.json',
+        '/robots.txt',
+    ],
+    // Prioritize main routes
+    transform: async (config, path) => {
+        // Set priority based on route importance
+        let priority = 0.7;
+        
+        if (path === '' || path === '/') {
+            priority = 1.0;
+        } else if (['/about', '/projects', '/experience', '/skills', '/contact'].includes(path)) {
+            priority = 0.9;
+        } else if (['/resume', '/open-source'].includes(path)) {
+            priority = 0.8;
+        }
+        
+        return {
+            loc: `${config.siteUrl}${path}`,
+            changefreq: config.changefreq,
+            priority,
+            lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
+        };
+    },
 }
 
 
