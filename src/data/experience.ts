@@ -12,7 +12,7 @@ export const experienceData: ExperienceItem[] = [
     title: "SDE Intern",
     company: "CliniChat.ai",
     location: "Rome, Latium, Italy · Remote",
-    period: "April 2025 - Present",
+    period: "April 2025 - April 2026",
     description: [
       "Contributing to the development of healthcare SaaS solutions using Django, Next.js, and PostgreSQL.",
       "Implemented secure and scalable REST APIs using Django REST Framework.",

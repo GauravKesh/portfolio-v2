@@ -6,201 +6,340 @@ export interface Project {
   image: string;
   demoUrl?: string;
   githubUrl?: string;
+  doc_url?: string;
+
+  category: "systems" | "backend" | "frontend" | "fullstack" | "ai" | "infra" | any;
+  doc_type?: "readme";
+
   tags: string[];
   features: string[];
 }
 
 export const projectsData: Project[] = [
+
+
+  // ⚙️ INFRA / SYSTEMS (ONLY IN DOC1)
+
+
   {
-  id: "project-0",
-  title: "Devmate",
-  slug: "devmate",
-  description: "Devmate is an AI-driven collaboration platform that helps college students and developers find ideal teammates, join hackathons, and collaborate securely without sharing personal contact information.",
-  image: "/images/webp/devmate.webp",
-  demoUrl: "https://dev-mate-seven.vercel.app/",
-  githubUrl: "",
-  tags: ["Next.js", "React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Firebase", "AI/ML"],
-  features: [
-    "AI-based teammate suggestion and smart compatibility scoring",
-    "Hackathon and event discovery with team matching",
-    "Project creation, collaboration and real-time invitations",
-    "In-app communication (team, personal and community chats) without sharing personal contact info",
-    "Privacy-first design with full control over visibility",
-    "College-focused experience (academic schedule-aware) and personalised recommendations",
-    "Responsive UI built with Next.js and Tailwind CSS"
-  ]
-},
+    id: "project-100",
+    title: "Rate Limiter (Go + Redis)",
+    slug: "redis-rate-limiter-go",
+
+
+    description:
+      "A scalable rate limiting service using Redis to control request throughput in distributed systems.",
+
+    image: "/images/webp/rate-limiter.webp",
+    githubUrl: "https://github.com/GauravKesh/rate-limiter",
+    doc_url: "https://github.com/GauravKesh/rate-limiter",
+
+    category: "infra",
+    doc_type: "readme",
+
+    tags: ["Go", "Redis", "Backend"],
+
+    features: [
+      "Request rate limiting using Redis",
+      "Middleware-based integration",
+      "Configurable limits and refill rates",
+      "Designed for distributed environments",
+    ],
+  },
+  {
+    id: "project-102",
+    title: "Multithreaded TCP Server",
+    slug: "multithreaded-tcp-server",
+
+    description:
+      "Concurrent TCP server with thread pool and efficient socket handling.",
+
+    image: "/images/webp/tcp.webp",
+    githubUrl: "https://github.com/GauravKesh/cpp-multithreaded-tcp-server",
+    doc_url: "https://github.com/GauravKesh/cpp-multithreaded-tcp-server",
+
+    category: "systems",
+    doc_type: "readme",
+    tags: ["C++", "Sockets", "Concurrency"],
+    features: [
+      "Thread pool architecture",
+      "Efficient I/O handling",
+      "Low latency communication",
+    ],
+  },
+
+  {
+    id: "project-101",
+    title: "API Gateway",
+    slug: "api-gateway",
+
+    description:
+      "A centralized API gateway for handling routing, authentication, and request management in microservices.",
+
+    image: "/images/webp/api_gateway_image.webp",
+    githubUrl: "https://github.com/gauravkesh/api_gateway",
+    doc_url: "https://github.com/gauravkesh/api_gateway",
+
+    category: "infra",
+    doc_type: "readme",
+
+    tags: ["Node.js", "Express", "Microservices"],
+
+    features: [
+      "Centralized request routing",
+      "Authentication and middleware support",
+      "Basic rate limiting",
+      "Proxying requests to backend services/other routes",
+    ],
+  },
+
+  {
+    id: "project-101",
+    title: "Custom Document Database (MongoDB-like)",
+    slug: "custom-document-database",
+
+    description:
+      "Lightweight document-oriented database with in-memory storage and persistence.",
+    image: "/images/webp/custom-db.webp",
+    githubUrl: "https://github.com/GauravKesh/database",
+    doc_url: "https://github.com/GauravKesh/database",
+    category: "systems",
+    doc_type: "readme",
+    tags: ["C++", "Storage Engine"],
+    features: [
+      "Flexible schema storage",
+      "JSON persistence",
+      "Custom query engine",
+    ],
+  },
+
+  {
+    id: "project-103",
+    title: "IoT Real-Time Security Monitoring",
+    slug: "iot-realtime-security-monitoring",
+
+    description:
+      "Edge-based system for real-time monitoring and anomaly detection.",
+    image: "/images/webp/system.webp",
+    category: "systems",
+    tags: ["IoT", "Edge Computing", "Realtime"],
+    features: [
+      "Real-time sensor processing",
+      "Low latency pipeline",
+      "Alerting system",
+    ],
+  },
+
+
+  // 🤖 AI
+
+
+  {
+    id: "project-0",
+    title: "Devmate",
+    slug: "devmate",
+    description:
+      "AI-driven collaboration platform for finding teammates and hackathon collaboration.",
+    image: "/images/webp/devmate.webp",
+    demoUrl: "https://dev-mate-seven.vercel.app/",
+    githubUrl: "",
+    category: "ai",
+    tags: [
+      "Next.js",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Firebase",
+      "AI/ML",
+    ],
+    features: [
+      "AI teammate matching",
+      "Hackathon discovery",
+      "Real-time collaboration",
+      "Privacy-first communication",
+      "Personalized recommendations",
+    ],
+  },
+
+
+  // 🌐 FULLSTACK
+
+
   {
     id: "project-1",
     title: "E-Patrol",
     slug: "E-Patrol",
-    description: "E-Patrol is a centralized police beat management system designed to streamline patrolling operations. It enables efficient beat assignment, real-time tracking, duty monitoring, and incident reporting to enhance field visibility and operational efficiency for law enforcement agencies.",
+    description:
+      "Centralized police beat management system with tracking and incident handling.",
     image: "/images/webp/e-patrol.webp",
     demoUrl: "https://e-patrol.vercel.app/",
     githubUrl: "https://github.com/GauravKesh/e-patrol",
-    tags: ["React", "Node.js", "MongoDB", "Next.js", "Tailwind CSS", "REST APIs", "GeoTracking"],
+    doc_url: "https://github.com/GauravKesh/e-patrol",
+    category: "fullstack",
+    doc_type: "readme",
+    tags: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Next.js",
+      "Tailwind CSS",
+      "REST APIs",
+      "GeoTracking",
+    ],
     features: [
-      "Role-Based Access Control (Admin, Officer)",
-      "Secure User Authentication and Profile Management",
-      "Beat Assignment and Patrol Scheduling Interface",
-      "Real-time GPS Tracking of Field Officers",
-      "Check-in/Check-out Logging with Timestamps",
-      "Incident Reporting and Escalation Handling",
-      "Interactive Map View using Google Maps API",
-      "Admin Dashboard for Monitoring and Analytics",
-      "RESTful API Architecture using Express.js and MongoDB",
-      "Responsive Design with Next.js and Tailwind CSS"
-    ]
+      "RBAC system",
+      "GPS tracking",
+      "Incident reporting",
+      "Admin dashboard",
+      "REST APIs",
+    ],
   },
+
   {
     id: "project-2",
     title: "Complaint Management System",
     slug: "Complaint-Management",
-    description: "The Complaint Management System (CMS) is a robust full-stack web application that simplifies the process of lodging, managing, and resolving complaints. It supports multiple user roles with secure access control, real-time updates, and a modern UI, making it ideal for institutions or organizations that handle internal or external grievance workflows.",
+    description:
+      "Full-stack complaint management platform with role-based workflows.",
     image: "/images/webp/complaint.webp",
     demoUrl: "https://conciliation-complain.vercel.app/home",
     githubUrl: "https://github.com/GauravKesh/Conciliation-Frontend",
-    tags: ["React", "Node.js", "MongoDB", "Next.js", "Tailwind CSS", "REST APIs"],
+    doc_url: "https://github.com/GauravKesh/Conciliation-Frontend",
+    category: "fullstack",
+    doc_type: "readme",
+    tags: ["React", "Node.js", "MongoDB", "Next.js"],
     features: [
-      "Role-Based Access Control for Admins, Officers, and Users",
-      "Secure Authentication and Authorization using JWT",
-      "Modern, Responsive UI built with Tailwind CSS and React",
-      "Real-time Complaint Updates and Status Tracking",
-      "Complaint Creation, Assignment, and Resolution Workflow",
-      "Admin Dashboard with Complaint Metrics and Analytics",
-      "Advanced Filtering and Search Functionality",
-      "RESTful API Architecture with Express and MongoDB",
-      "Scalable and Modular Codebase for Future Enhancements",
-      "Optimized for Performance and Mobile Accessibility"
+      "Authentication & authorization",
+      "Real-time updates",
+      "Admin analytics",
+      "Scalable architecture",
     ],
   },
-  
-  {
-    id: "project-3",
-    title: "GDG-Website",
-    slug: "GDG-Website",
-    description: "A Community platform website to showcase event, member and events.",
-    image: "/images/webp/gdg.webp",
-    demoUrl: "https://gdgpu.vercel.app/",
-    githubUrl: "https://github.com/username/social-dashboard",
-    tags: ["Next.js", "React js", "TailwindCSS", "Google Appscript",],
-    features: [
-      "Tracking Events",
-      "Team page",
-      // "Content scheduling and publishing",
-      // "Audience insights and engagement metrics",
-      // "Customizable widget-based dashboard",
-    ],
-  },
+
   {
     id: "project-4",
     title: "URL Shortner",
     slug: "URL-Shortner",
-    description: "A web application to shorten url for better readability and sharable ",
+    description: "Scalable URL shortening service.",
     image: "/images/webp/gshort.webp",
     demoUrl: "https://gshort.vercel.app/",
-    githubUrl: "",
-    tags: ["React", "Nodejs", "MongoDB", "Nextjs", "Tailwindcss"],
+    category: "fullstack",
+    tags: ["Node.js", "Redis", "MongoDB"],
     features: [
-      "Shortening url",
-      "Tracking url hits",
-      "Storing it for longer use",
-      "Faster execution",
+      "Short URL generation",
+      "Analytics tracking",
+      "Low latency redirects",
     ],
   },
+
+
+  // 🎨 FRONTEND
+
+
+  {
+    id: "project-3",
+    title: "GDG-Website",
+    slug: "GDG-Website",
+    description: "Community platform website.",
+    image: "/images/webp/gdg.webp",
+    demoUrl: "https://gdgpu.vercel.app/",
+    githubUrl: "https://github.com/username/social-dashboard",
+    doc_url: "https://github.com/username/social-dashboard",
+    category: "frontend",
+    doc_type: "readme",
+    tags: ["Next.js", "React", "TailwindCSS"],
+    features: ["Event tracking", "Team page"],
+  },
+
   {
     id: "project-10",
     title: "Portfolio v1",
     slug: "portfolio-v1",
-    description: "A comprehensive Portfolio to showcase my work ,skills and achievements.",
+    description: "Personal portfolio website.",
     image: "/images/webp/portfoliov1.webp",
     demoUrl: "https://pers-portfolio-v1.vercel.app/",
     githubUrl: "https://github.com/GauravKesh/personalPortfolio",
-    tags: ["React js", "Tailwind css",],
-    features: [
-      "Landing Page",
-      " Tracking projects ",
-    ],
+    doc_url: "https://github.com/GauravKesh/personalPortfolio",
+    category: "frontend",
+    doc_type: "readme",
+    tags: ["React", "Tailwind"],
+    features: ["Landing page", "Project showcase"],
   },
+
   {
     id: "project-5",
     title: "Github Clone",
     slug: "github-clone",
-    description: "A comprehensive fitness application for tracking workouts, nutrition, and health metrics with personalized recommendations.",
+    description: "GitHub profile visualization tool.",
     image: "/images/webp/github.webp",
     demoUrl: "https://searchgithubprofilegkr.vercel.app/",
     githubUrl: "https://github.com/GauravKesh/Github_profile_search",
-    tags: ["React js", "Tailwind css", "Github API's",],
-    features: [
-      "Workout planning and tracking",
-      "Nutrition logging and analysis",
-      "Health metrics and progress visualization",
-      "Personalized workout recommendations",
-      "Community features and challenges",
-    ],
+    doc_url: "https://github.com/GauravKesh/Github_profile_search",
+    category: "frontend",
+    doc_type: "readme",
+    tags: ["React"],
+    features: ["Profile search", "Data visualization"],
   },
+
   {
     id: "project-6",
     title: "TO-DO",
     slug: "to-do",
-    description: "A Task management application for tracking tasks, and goal setting with visualization .",
+    description: "Task management app.",
     image: "/images/webp/todo.webp",
     demoUrl: "https://todo-gkr.vercel.app/",
     githubUrl: "https://github.com/GauravKesh/ToDo",
-    tags: ["React js", "Tailwind css", "DOM manipulation", "Bootstrap"],
-    features: [
-      "Managing Daily Task",
-      "Browse History",
-    ],
+    doc_url: "https://github.com/GauravKesh/ToDo",
+    category: "frontend",
+    doc_type: "readme",
+    tags: ["React"],
+    features: ["Task tracking"],
   },
+
   {
     id: "project-7",
     title: "Text-Transform",
     slug: "text-transform",
-    description: "A application to transform your text into desired way",
+    description: "Text utility tool.",
     image: "/images/webp/text.webp",
     demoUrl: "https://gauravkesh.github.io/Text-Transform/",
     githubUrl: "https://github.com/GauravKesh/Text-Transform",
-    tags: ["React", "Bootstrap", "HTML", "CSS",],
-    features: [
-      "Transforming text",
-      "Analyzing Text count",
-
-    ],
+    doc_url: "https://github.com/GauravKesh/Text-Transform",
+    category: "frontend",
+    doc_type: "readme",
+    tags: ["React"],
+    features: ["Text transform", "Text analysis"],
   },
+
   {
     id: "project-8",
     title: "UI-UX",
     slug: "ui-ux",
-    description: "I made this particular ui design  to enhance my skills",
+    description: "UI design practice.",
     image: "/images/webp/ui-ux.webp",
     demoUrl: "https://onyx-mocha.vercel.app/",
     githubUrl: "https://github.com/GauravKesh/onyx",
-    tags: ["HTML", "CSS",],
-    features: [
-      "UI design",
-      // "Budget creation and management",
-      // "Financial goal setting and tracking",
-      // "Interactive charts and reports",
-      // "Bank account integration and reconciliation",
-    ],
+    doc_url: "https://github.com/GauravKesh/onyx",
+    category: "frontend",
+    doc_type: "readme",
+    tags: ["HTML", "CSS"],
+    features: ["UI components"],
   },
 
   {
     id: "project-9",
     title: "Portfolio-V0",
     slug: "portfolio-v0",
-    description: "My first portfolio that  i made ",
+    description: "First portfolio version.",
     image: "/images/webp/portfoliov0.webp",
     demoUrl: "https://gkrwebdev.vercel.app/",
     githubUrl: "https://github.com/GauravKesh/GauravKesh.github.io",
-    tags: ["HTML", "CSS",],
-    features: [
-      "A normal Portfolio",
-      "Detect Location",
-      // "Financial goal setting and tracking",
-      // "Interactive charts and reports",
-      // "Bank account integration and reconciliation",
-    ],
+    doc_url: "https://github.com/GauravKesh/GauravKesh.github.io",
+    category: "frontend",
+    doc_type: "readme",
+    tags: ["HTML", "CSS"],
+    features: ["Basic portfolio"],
   },
 ];
