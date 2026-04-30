@@ -6,13 +6,25 @@ import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Home, Maximize2, Sparkles } from "lucide-react";
+import { FileText, Home, Maximize2, Sparkles, Download } from "lucide-react";
 
 type ResumeViewerProps = {
   previewUrl: string;
+  downloadUrl: string;
 };
 
-export default function ResumeViewer({ previewUrl }: ResumeViewerProps) {
+function DownloadButton({ downloadUrl }: { downloadUrl: string }) {
+  return (
+    <Button asChild size="sm" variant="outline" className="rounded-full border-border/60 bg-background/80 mx-2">
+      <a href={downloadUrl} target="_blank" rel="noopener noreferrer" aria-label="Download resume">
+        <Download className="h-4 w-4 sm:mr-2" />
+        <span className="hidden sm:inline">Download</span>
+      </a>
+    </Button>
+  );
+}
+
+export default function ResumeViewer({ previewUrl, downloadUrl }: ResumeViewerProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -49,21 +61,25 @@ export default function ResumeViewer({ previewUrl }: ResumeViewerProps) {
           </p>
 
           <Dialog open={isFullScreen} onOpenChange={handleOpenChange}>
+            <div className="ml-auto hidden sm:block">
+              <DownloadButton downloadUrl={downloadUrl} />
+            </div>
+
             <DialogTrigger asChild>
               <Button
                 variant="outline"
                 size="sm"
-                className="ml-auto rounded-full border-border/60 bg-background/80"
+                className="ml-2 rounded-full border-border/60 bg-background/80"
               >
                 <Maximize2 className="mr-2 h-4 w-4" />
                 Maximize
               </Button>
             </DialogTrigger>
 
-            <DialogContent className="left-0 top-0 z-[60] h-screen w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 bg-background p-0 shadow-none data-[state=open]:slide-in-from-top-0 data-[state=closed]:slide-out-to-top-0 sm:rounded-none">
+            <DialogContent className="left-0 top-0 z-[60] h-screen w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 bg-background p-0 px-2 shadow-none data-[state=open]:slide-in-from-top-0 data-[state=closed]:slide-out-to-top-0 sm:rounded-none">
               <DialogHeader className="flex-row items-center justify-between border-b border-border/60 px-5 py-4 sm:px-6">
                 <DialogTitle className="flex items-center gap-2 text-base font-semibold">
-                   <Link
+                  <Link
                   href="/"
                   className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-background/80 text-muted-foreground transition-colors hover:text-foreground"
                   aria-label="Go to home page"
@@ -74,7 +90,7 @@ export default function ResumeViewer({ previewUrl }: ResumeViewerProps) {
                   Resume Preview
                 </DialogTitle>
 
-               
+                <DownloadButton downloadUrl={downloadUrl} />
               </DialogHeader>
 
               <div className="h-[calc(100vh-4rem)] bg-muted/20 p-3 sm:p-4">
