@@ -110,7 +110,7 @@ export default function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4">
+      <div className="container  mx-auto px-4">
         <div className="flex items-center justify-between py-3 md:py-4">
           <Link href="/" className="group inline-flex items-center gap-3">
             <motion.div
@@ -119,7 +119,7 @@ export default function Header() {
               animate="visible"
               className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border/60 bg-background/80 text-sm font-semibold tracking-[0.2em] shadow-sm transition-transform group-hover:scale-105"
             >
-              G
+              GKR
             </motion.div>
             <div className="hidden md:block">
               <motion.div
@@ -128,17 +128,10 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.08, duration: 0.35, ease: "easeOut" }}
               >
-                <Sparkles className="h-3.5 w-3.5 text-primary" />
-                GKR Portfolio
+                {/* <Sparkles className="h-3.5 w-3.5 text-primary" /> */}
+                {/* GKR */}
               </motion.div>
-              <motion.p
-                className="text-sm text-foreground/80"
-                initial={{ opacity: 0, y: 4 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.12, duration: 0.35, ease: "easeOut" }}
-              >
-                Designing digital products with focus
-              </motion.p>
+              
             </div>
           </Link>
 

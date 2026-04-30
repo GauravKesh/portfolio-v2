@@ -37,7 +37,7 @@ export default function Footer() {
       <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl opacity-70" />
       <div className="absolute right-0 top-24 h-80 w-80 rounded-full bg-secondary/10 blur-3xl opacity-70" />
 
-      <div className="container relative mx-auto px-4 py-14 md:px-6 md:py-16">
+      <div className="container relative mx-auto px-4 py-14 md:px-4 md:py-16">
         <div className="mb-10 overflow-hidden rounded-[2rem] border border-border/60 bg-background/80 p-6 shadow-[0_18px_70px_-45px_rgba(0,0,0,0.6)] backdrop-blur-xl md:p-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-4">

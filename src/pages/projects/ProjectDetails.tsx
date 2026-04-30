@@ -79,7 +79,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
         </div>
       </motion.div>
 
-      <div className="container mx-auto px-4 md:px-6 max-w-4xl -mt-8 md:-mt-12 relative z-20">
+      <div className="container mx-auto px-4 md:px-6 -mt-8 md:-mt-12 relative z-20">
         <ProjectTabs project={project} />
       </div>
 
@@ -92,7 +92,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="mt-12 pt-12 border-t border-border"
         >
-          <h3 className="text-xl font-semibold mb-6">More Projects</h3>
+          {/* <h3 className="text-xl font-semibold mb-6">More Projects</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projectsData
               .filter((p) => p.slug !== slug)
@@ -125,7 +125,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
                   </div>
                 </Link>
               ))}
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </div>

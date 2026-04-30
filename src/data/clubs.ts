@@ -8,10 +8,10 @@ export interface ClubItem {
 }
 
 export const clubsData: ClubItem[] = [
-  {
-    name: "IEEE Student Chapter",
-    role: "Member / Volunteer",
-    period: "2022 - Present",
+    {
+    name: "Google Developers Group ",
+    role: "Tech Lead",
+    period: "2024 - Present",
     description:
       "Participated in organizing tech workshops, hackathons and guest lectures focused on embedded systems and AI.",
     highlights: ["Organized 3 workshops", "Mentored 10+ participants"],
@@ -25,14 +25,5 @@ export const clubsData: ClubItem[] = [
       "Trained in leadership, drills, and team-based activities; participated in national-level camps.",
     highlights: ["Attended regional camp", "Discipline and leadership training"],
     keySkills: ["Leadership", "Teamwork", "Discipline"],
-  },
-  {
-    name: "Athletics Team",
-    role: "Sprinter / Team Captain",
-    period: "2015 - 2020",
-    description:
-      "Competed in 400m and 600m events; represented school at national level meets.",
-    highlights: ["National-level athlete", "Won multiple school championships"],
-    keySkills: ["Athletics", "Team Captain", "Training"],
   },
 ];

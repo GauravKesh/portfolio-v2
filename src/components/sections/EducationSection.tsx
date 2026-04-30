@@ -85,6 +85,7 @@ export default function EducationSection() {
             className="space-y-6"
           >
             {educationData.map((education, index) => {
+              const keySkills = education.keySkills ?? [];
               const initials = education.institution
                 .split(" ")
                 .map((w) => w[0])
@@ -179,9 +180,9 @@ export default function EducationSection() {
                       </div>
                     )}
 
-                    {education.keySkills?.length > 0 && (
+                    {keySkills.length > 0 && (
                       <div className="mt-4 flex flex-wrap gap-2">
-                        {education.keySkills.slice(0, 8).map((skill, i) => (
+                        {keySkills.slice(0, 8).map((skill, i) => (
                           <span key={i} className="text-xs px-2 py-1 rounded-full bg-secondary/10 border border-border text-muted-foreground">
                             {skill}
                           </span>
