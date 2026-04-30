@@ -46,7 +46,7 @@ export default function ProjectTabs({ project }: ProjectTabsProps) {
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/80 px-3 py-1 text-xs font-medium text-muted-foreground">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
+              {/* <Sparkles className="h-3.5 w-3.5 text-primary" /> */}
               Project Details
             </div>
             <h2 className="text-xl font-semibold tracking-tight md:text-2xl">Project panel</h2>

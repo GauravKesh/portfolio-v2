@@ -42,7 +42,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                <Sparkles className="h-3.5 w-3.5 text-primary" />
+                {/* <Sparkles className="h-3.5 w-3.5 text-primary" /> */}
                 Let&apos;s build something sharp
               </div>
               <h2 className="text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
