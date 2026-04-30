@@ -69,7 +69,7 @@ export const projectsData: Project[] = [
   },
 
   {
-    id: "project-101",
+    id: "project-201",
     title: "API Gateway",
     slug: "api-gateway",
 
