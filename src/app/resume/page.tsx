@@ -25,14 +25,14 @@ export default function ResumePage() {
         <div className="absolute bottom-[-8rem] left-1/3 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
       </div>
 
-      <div className="mx-auto mb-4 flex max-w-6xl justify-end">
+      {/* <div className="mx-auto mb-4 flex max-w-6xl justify-end">
         <Button asChild size="sm" variant="outline" className="rounded-full border-border/60 bg-background/80">
           <a href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer" aria-label="Download resume">
             <Download className="h-4 w-4 sm:mr-2" />
             <span className="hidden sm:inline">Download</span>
           </a>
         </Button>
-      </div>
+      </div> */}
 
       <ResumeViewer previewUrl={PREVIEW_URL} downloadUrl={DOWNLOAD_URL} />
     </div>
