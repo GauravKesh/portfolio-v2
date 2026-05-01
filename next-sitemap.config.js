@@ -7,7 +7,7 @@
 
 
 module.exports = {
-    siteUrl: 'https://gkrcoder.vercel.app',
+    siteUrl: 'https://gkrcoder.me',
     generateRobotsTxt: true,
     generateIndexSitemap: false,
     sitemapSize: 7000,
