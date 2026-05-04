@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://gkrcoder.vercel.app
+Host: https://gkrcoder.me
 
 # Sitemaps
-Sitemap: https://gkrcoder.vercel.app/sitemap.xml
+Sitemap: https://gkrcoder.me/sitemap.xml
