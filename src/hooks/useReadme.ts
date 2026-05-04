@@ -48,14 +48,13 @@ async function fetchRawMarkdown(docUrl: string): Promise<string> {
 }
 
 async function renderMarkdownViaGitHub(markdown: string): Promise<string> {
-  const res = await fetch("https://api.github.com/markdown", {
+  const res = await fetch("/api/github/markdown", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text: markdown, mode: "gfm" }),
   });
 
   if (!res.ok) {
-    // Fallback: if GitHub API rate-limits, return raw markdown signal
     throw new Error(`GitHub API error: ${res.status}`);
   }
 
