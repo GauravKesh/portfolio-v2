@@ -113,14 +113,17 @@ export const projectsData: Project[] = [
     ],
   },
 
+
+
   {
     id: "project-103",
     title: "IoT Real-Time Security Monitoring",
     slug: "iot-realtime-security-monitoring",
-
+    githubUrl: "https://github.com/GauravKesh/IoT_Real_Time_Security_Monitoring",
+    doc_url: "https://github.com/GauravKesh/IoT_Real_Time_Security_Monitoring",
     description:
       "Edge-based system for real-time monitoring and anomaly detection.",
-    image: "/images/webp/system.webp",
+    image: "/images/png/edge-iot.png",
     category: "systems",
     tags: ["IoT", "Edge Computing", "Realtime"],
     features: [
