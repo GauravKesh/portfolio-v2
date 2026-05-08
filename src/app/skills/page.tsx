@@ -26,13 +26,27 @@ export const metadata: Metadata = {
     "Backend Developer",
     "Full-stack Software Developer",
   ],
+  alternates: {
+    canonical: "/skills",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gkrcoder.vercel.app/skills",
+    url: "https://gkrcoder.me/skills",
     title: "Tech Stack & Skills | Gaurav Kesh Roushan",
     description: "Comprehensive overview of the technologies and tools I work with as a full-stack developer.",
     siteName: "Gaurav Kesh Roushan",
+    images: [
+      {
+        url: "/images/mine/gkrcoder.webp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tech Stack & Skills | Gaurav Kesh Roushan",
+    description: "Comprehensive overview of the technologies and tools I work with as a full-stack developer.",
+    images: ["/images/mine/gkrcoder.webp"],
   },
 };
 

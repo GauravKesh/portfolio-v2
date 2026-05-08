@@ -6,9 +6,31 @@ import { Download } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Resume | Professional Portfolio',
   description: 'View and download my professional resume',
+  alternates: {
+    canonical: "/resume",
+  },
   robots: {
     index: false,
     follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://gkrcoder.me/resume",
+    title: "Resume | Professional Portfolio",
+    description: "View and download my professional resume",
+    siteName: "Gaurav Kesh Roushan",
+    images: [
+      {
+        url: "/images/mine/gkrcoder.webp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resume | Professional Portfolio",
+    description: "View and download my professional resume",
+    images: ["/images/mine/gkrcoder.webp"],
   },
 }
 

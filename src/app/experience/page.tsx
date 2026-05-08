@@ -24,13 +24,27 @@ export const metadata: Metadata = {
     "professional journey",
     "developer CV",
   ],
+  alternates: {
+    canonical: "/experience",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gkrcoder.vercel.app/experience",
+    url: "https://gkrcoder.me/experience",
     title: "Professional Experience | Gaurav Kesh Roushan",
     description: "Detailed breakdown of my work experience in startups, internships, and open-source projects.",
     siteName: "Gaurav Kesh Roushan",
+    images: [
+      {
+        url: "/images/mine/gkrcoder.webp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Professional Experience | Gaurav Kesh Roushan",
+    description: "Detailed breakdown of my work experience in startups, internships, and open-source projects.",
+    images: ["/images/mine/gkrcoder.webp"],
   },
 };
 

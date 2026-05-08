@@ -5,7 +5,7 @@
 			https://gkrcoder.me/open-source
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.612Z
+			2026-05-08T15:35:49.794Z
 		</lastmod>
 		<changefreq>
 			weekly
@@ -16,24 +16,10 @@
 	</url>
 	<url>
 		<loc>
-			https://gkrcoder.me/about
-		</loc>
-		<lastmod>
-			2026-05-08T15:22:41.615Z
-		</lastmod>
-		<changefreq>
-			weekly
-		</changefreq>
-		<priority>
-			0.9
-		</priority>
-	</url>
-	<url>
-		<loc>
 			https://gkrcoder.me
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			daily
@@ -44,66 +30,10 @@
 	</url>
 	<url>
 		<loc>
-			https://gkrcoder.me/contact
-		</loc>
-		<lastmod>
-			2026-05-08T15:22:41.615Z
-		</lastmod>
-		<changefreq>
-			weekly
-		</changefreq>
-		<priority>
-			0.9
-		</priority>
-	</url>
-	<url>
-		<loc>
-			https://gkrcoder.me/skills
-		</loc>
-		<lastmod>
-			2026-05-08T15:22:41.615Z
-		</lastmod>
-		<changefreq>
-			weekly
-		</changefreq>
-		<priority>
-			0.9
-		</priority>
-	</url>
-	<url>
-		<loc>
-			https://gkrcoder.me/projects
-		</loc>
-		<lastmod>
-			2026-05-08T15:22:41.615Z
-		</lastmod>
-		<changefreq>
-			weekly
-		</changefreq>
-		<priority>
-			0.9
-		</priority>
-	</url>
-	<url>
-		<loc>
-			https://gkrcoder.me/experience
-		</loc>
-		<lastmod>
-			2026-05-08T15:22:41.615Z
-		</lastmod>
-		<changefreq>
-			weekly
-		</changefreq>
-		<priority>
-			0.9
-		</priority>
-	</url>
-	<url>
-		<loc>
 			https://gkrcoder.me/projects/Complaint-Management
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -117,7 +47,7 @@
 			https://gkrcoder.me/projects/E-Patrol
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -131,7 +61,7 @@
 			https://gkrcoder.me/projects/GDG-Website
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -145,7 +75,7 @@
 			https://gkrcoder.me/projects/URL-Shortner
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -159,7 +89,7 @@
 			https://gkrcoder.me/projects/api-gateway
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -173,7 +103,7 @@
 			https://gkrcoder.me/projects/custom-document-database
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -187,7 +117,7 @@
 			https://gkrcoder.me/projects/devmate
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -201,7 +131,7 @@
 			https://gkrcoder.me/projects/github-clone
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -215,7 +145,7 @@
 			https://gkrcoder.me/projects/iot-realtime-security-monitoring
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -229,7 +159,7 @@
 			https://gkrcoder.me/projects/multithreaded-tcp-server
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -243,7 +173,7 @@
 			https://gkrcoder.me/projects/portfolio-v0
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -257,7 +187,7 @@
 			https://gkrcoder.me/projects/portfolio-v1
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -271,7 +201,7 @@
 			https://gkrcoder.me/projects/redis-rate-limiter-go
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -285,7 +215,7 @@
 			https://gkrcoder.me/projects/text-transform
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -299,7 +229,7 @@
 			https://gkrcoder.me/projects/to-do
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -313,7 +243,7 @@
 			https://gkrcoder.me/projects/ui-ux
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			monthly
@@ -324,16 +254,86 @@
 	</url>
 	<url>
 		<loc>
+			https://gkrcoder.me/projects
+		</loc>
+		<lastmod>
+			2026-05-08T15:35:49.797Z
+		</lastmod>
+		<changefreq>
+			weekly
+		</changefreq>
+		<priority>
+			0.9
+		</priority>
+	</url>
+	<url>
+		<loc>
 			https://gkrcoder.me/resume
 		</loc>
 		<lastmod>
-			2026-05-08T15:22:41.615Z
+			2026-05-08T15:35:49.797Z
 		</lastmod>
 		<changefreq>
 			weekly
 		</changefreq>
 		<priority>
 			0.8
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://gkrcoder.me/skills
+		</loc>
+		<lastmod>
+			2026-05-08T15:35:49.797Z
+		</lastmod>
+		<changefreq>
+			weekly
+		</changefreq>
+		<priority>
+			0.9
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://gkrcoder.me/experience
+		</loc>
+		<lastmod>
+			2026-05-08T15:35:49.797Z
+		</lastmod>
+		<changefreq>
+			weekly
+		</changefreq>
+		<priority>
+			0.9
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://gkrcoder.me/about
+		</loc>
+		<lastmod>
+			2026-05-08T15:35:49.797Z
+		</lastmod>
+		<changefreq>
+			weekly
+		</changefreq>
+		<priority>
+			0.9
+		</priority>
+	</url>
+	<url>
+		<loc>
+			https://gkrcoder.me/contact
+		</loc>
+		<lastmod>
+			2026-05-08T15:35:49.797Z
+		</lastmod>
+		<changefreq>
+			weekly
+		</changefreq>
+		<priority>
+			0.9
 		</priority>
 	</url>
 </urlset>

@@ -16,13 +16,27 @@ export const metadata: Metadata = {
     "TypeScript",
     "web development",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gkrcoder.vercel.app",
+    url: "https://gkrcoder.me",
     title: "Gaurav Kesh Roushan | Full-Stack Developer",
     description: "Building performant, scalable, and modern web applications using React, Next.js, Django, and more.",
     siteName: "Gaurav Kesh Roushan",
+    images: [
+      {
+        url: "/images/mine/gkrcoder.webp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gaurav Kesh Roushan | Full-Stack Developer",
+    description: "Building performant, scalable, and modern web applications using React, Next.js, Django, and more.",
+    images: ["/images/mine/gkrcoder.webp"],
   },
 };
 

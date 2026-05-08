@@ -23,13 +23,27 @@ export const metadata: Metadata = {
     "coding showcase",
     "developer achievements",
   ],
+  alternates: {
+    canonical: "/projects",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gkrcoder.vercel.app/projects",
+    url: "https://gkrcoder.me/projects",
     title: "Projects Portfolio | Gaurav Kesh Roushan",
     description: "Explore my featured projects and contributions showcasing expertise in building scalable applications.",
     siteName: "Gaurav Kesh Roushan",
+    images: [
+      {
+        url: "/images/webp/portfoliov1.webp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects Portfolio | Gaurav Kesh Roushan",
+    description: "Explore my featured projects and contributions showcasing expertise in building scalable applications.",
+    images: ["/images/webp/portfoliov1.webp"],
   },
 };
 

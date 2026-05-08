@@ -15,6 +15,7 @@ import LoadingWrapper from "@/components/common/LoadingWrapper";
 import BackgroundUILayer from "@/components/ui/backgrounduilayer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gkrcoder.me"),
   title: "Gaurav Kesh Roushan",
   description:
     "Portfolio of Gaurav Kesh Roushan – full-stack software developer skilled in React, Next.js, Django, Node.js, TypeScript. Explore projects, skills, experience, and tech blogs.",
@@ -40,14 +41,29 @@ export const metadata: Metadata = {
     "modern web development",
     "Gaurav portfolio",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gkrcoder.vercel.app",
+    url: "https://gkrcoder.me",
     title: "Gaurav Kesh Roushan | Full-Stack Developer Portfolio",
     description:
       "Explore my full-stack developer profile, technical stack, project showcases, and career highlights.",
     siteName: "Gaurav Kesh Roushan",
+    images: [
+      {
+        url: "/images/mine/gkrcoder.webp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gaurav Kesh Roushan | Full-Stack Developer Portfolio",
+    description:
+      "Explore my full-stack developer profile, technical stack, project showcases, and career highlights.",
+    images: ["/images/mine/gkrcoder.webp"],
   },
   verification: {
     google: "VZ6TvnDQ6gSfi_qYHyXMMPg3f5lh8K2x7mbmgotpNTc",

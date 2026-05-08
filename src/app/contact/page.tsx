@@ -20,13 +20,27 @@ export const metadata: Metadata = {
     "tech hiring",
     "reach out developer",
   ],
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gkrcoder.vercel.app/contact",
+    url: "https://gkrcoder.me/contact",
     title: "Contact Gaurav Kesh Roushan | Developer Collaboration",
     description: "Get in touch for freelance work, internships, mentorship, or collaborative tech projects.",
     siteName: "Gaurav Kesh Roushan",
+    images: [
+      {
+        url: "/images/mine/gkrcoder.webp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Gaurav Kesh Roushan | Developer Collaboration",
+    description: "Get in touch for freelance work, internships, mentorship, or collaborative tech projects.",
+    images: ["/images/mine/gkrcoder.webp"],
   },
 };
 
