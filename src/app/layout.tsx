@@ -106,7 +106,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <ThemeProvider>
-        <LoadingWrapper>
+
           <div className="flex min-h-screen flex-col">
             <Header />
 
@@ -118,7 +118,7 @@ export default function RootLayout({
 
             <Footer />
           </div>
-        </LoadingWrapper>
+
         </ThemeProvider>
       </body>
     </html>
