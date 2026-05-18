@@ -5,13 +5,10 @@ import { ThemeProvider } from "./ThemeProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
-import RippleEffect from "@/components/sections/RippleEffect";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from '@next/third-parties/google'
-
-import LoadingWrapper from "@/components/common/LoadingWrapper";
 import BackgroundUILayer from "@/components/ui/backgrounduilayer";
 
 export const metadata: Metadata = {
@@ -111,7 +108,6 @@ export default function RootLayout({
             <Header />
 
             <main className="flex-1">
-              <RippleEffect />
               
               {children}
             </main>
