@@ -111,7 +111,6 @@ export default function RootLayout({
             <Header />
 
             <main className="flex-1">
-              <RippleEffect />
               
               {children}
             </main>
