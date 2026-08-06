@@ -1,10 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { ThemeProvider } from "./ThemeProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-const inter = Inter({ subsets: ["latin"] });
 import RippleEffect from "@/components/sections/RippleEffect";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
@@ -101,7 +99,7 @@ export default function RootLayout({
       <GoogleTagManager gtmId="GTM-MKJKLDVR" />
       <GoogleAnalytics gaId="G-G7S9DFLMPY" />
       <body
-        className={`${inter.className} min-h-screen bg-background text-foreground`}
+        className="min-h-screen bg-background text-foreground"
       >
         <Analytics />
         <SpeedInsights />
