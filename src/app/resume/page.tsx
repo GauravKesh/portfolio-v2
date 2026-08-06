@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
 import ResumeViewer from '@/components/resume/ResumeViewer'
 import { Download } from 'lucide-react'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: 'Resume | Professional Portfolio',
@@ -56,7 +57,9 @@ export default function ResumePage() {
         </Button>
       </div> */}
 
-      <ResumeViewer previewUrl={PREVIEW_URL} downloadUrl={DOWNLOAD_URL} />
+      <Suspense fallback={<div className="mx-auto max-w-6xl" />}>
+        <ResumeViewer previewUrl={PREVIEW_URL} downloadUrl={DOWNLOAD_URL} />
+      </Suspense>
     </div>
   )
 }
