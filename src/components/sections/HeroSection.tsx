@@ -38,18 +38,31 @@ const itemVariants = {
 
 export default function HeroSection() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [viewport, setViewport] = useState({ width: 1, height: 1 });
 
   useEffect(() => {
     const handleMouse = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
+    const handleResize = () => {
+      setViewport({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    handleResize();
     window.addEventListener("mousemove", handleMouse);
-    return () => window.removeEventListener("mousemove", handleMouse);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("mousemove", handleMouse);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const calcParallax = (strength = 15) => ({
-    x: (mousePos.x / window.innerWidth - 0.5) * strength,
-    y: (mousePos.y / window.innerHeight - 0.5) * strength,
+    x: (mousePos.x / viewport.width - 0.5) * strength,
+    y: (mousePos.y / viewport.height - 0.5) * strength,
   });
 
   return (
