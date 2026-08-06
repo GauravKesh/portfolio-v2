@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
 }
 
-const RESUME_ID = '1DjxeX2HMyhF77wnYiFcrTy0VogNAUJnz'
+const RESUME_ID = '1WR1wO9HcrXaul-M4gmxLnkOS5jwaFSZf'
 const PREVIEW_URL = `https://drive.google.com/file/d/${RESUME_ID}/preview`
 const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_ID}`
 
