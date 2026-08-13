@@ -11,7 +11,7 @@ export const experienceData: ExperienceItem[] = [
 {
   title: "Full Stack Developer Intern",
   company: "Deloitte",
-  location: "Bengaluru, Karnataka, India · Hybrid",
+  location: "Bengaluru, Karnataka, India",
   period: "June 2026 - August 2026",
   description: [
     "Contributed to Deloitte's internal enterprise platform, developing scalable features using microservices and micro-frontend architectures.",
@@ -56,7 +56,7 @@ export const experienceData: ExperienceItem[] = [
     skills: ["Django", "PostgreSQL", "React.js", "TypeScript", "REST APIs", "Tailwind CSS"],
   },
   {
-    title: "Full Stack Web Developer",
+    title: "Full Stack Web Developer Intern",
     company: "Accura Tequipment",
     location: "Bengaluru, Karnataka, India · On-site",
     period: "June 2024 - September 2024",
