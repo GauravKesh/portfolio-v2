@@ -8,6 +8,28 @@ export interface ExperienceItem {
   skills: string[];
 }
 export const experienceData: ExperienceItem[] = [
+{
+  title: "Full Stack Developer Intern",
+  company: "Deloitte",
+  location: "Bengaluru, Karnataka, India · Hybrid",
+  period: "June 2026 - August 2026",
+  description: [
+    "Contributed to Deloitte's internal enterprise platform, developing scalable features using microservices and micro-frontend architectures.",
+    "Built and integrated frontend modules with backend microservices, focusing on modularity, scalability, and seamless application workflows.",
+    "Worked with AWS and modern development practices to support application development, testing, debugging, and deployment."
+  ],
+  skills: [
+    "React.js",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "Microservices",
+    "Micro Frontends",
+    "AWS",
+    "REST APIs",
+    "Git"
+  ],
+},
   {
     title: "SDE Intern",
     company: "CliniChat.ai",
