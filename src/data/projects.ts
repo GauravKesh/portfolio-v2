@@ -17,6 +17,47 @@ export interface Project {
 
 export const projectsData: Project[] = [
 
+  {
+    id: "shortify-url-shortener",
+    slug: "shortify",
+    title: "Shortify - Enterprise URL Shortener",
+    description: "A production-grade, highly scalable URL shortener platform featuring multi-tenant organization workspaces, granular Role-Based Access Control (RBAC), and deep click analytics. Architected to handle high-traffic link redirection with Redis caching, robust security measures, and integrated subscription management.",
+    image: "/images/webp/shortify.webp",
+    demoUrl: "https://shortify.gkrcoder.me",
+    // githubUrl: "https://github.com/GauravKesh/urlshort-client",
+    category: "fullstack",
+    doc_type: "readme",
+    tags: [
+      "Next.js 16",
+      "React 19",
+      "Node.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "Express",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Framer Motion",
+      "Recharts",
+      "Razorpay",
+      "Sentry",
+      "JWT Authentication"
+    ],
+    features: [
+      "Fast & reliable custom URL shortening with Redis-backed caching and rate limiting",
+      "Multi-tenant organization workspaces for seamless team collaboration",
+      "Granular Role-Based Access Control (Owner, Admin, Member)",
+      "Advanced real-time analytics with GeoIP location tracking and device parsing (Recharts, GeoIP, UA-Parser)",
+      "Integrated subscription and payment processing via Razorpay",
+      "Advanced security with Superadmin 2FA authentication & HttpOnly cookie sessions",
+      "Dynamic QR Code generation and PDF report exports for short links",
+      "Integrated real-time notification system and transactional emails via Resend",
+      "Robust error tracking and performance profiling using Sentry"
+    ]
+  },
+
+
+
 
   // ⚙️ INFRA / SYSTEMS (ONLY IN DOC1)
 

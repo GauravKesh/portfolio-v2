@@ -57,7 +57,7 @@ export default function ProjectDetails({ slug }: ProjectDetailsProps) {
                 {project.title}
               </h1>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-white/80 md:text-base">
-                {project.description}
+                {project.description.slice(0,100)}
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {project.tags.slice(0, 5).map((tag) => (
